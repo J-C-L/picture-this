@@ -1,4 +1,38 @@
-.App {
+
+
+.main-title {
+  text-align: center;
+}
+
+h3.main-title {
+  padding-bottom: 15px;
+  border-bottom: 2px solid;
+}
+
+body {
+  display: block;
+  position: relative;
+  min-height: 675px;
+}
+
+body::after {
+  content: "";
+  background: url("http://media.istockphoto.com/photos/blue-graph-paper-background-textured-picture-id173153967") no-repeat center center;
+  background-size: cover;
+background-attachment: fixed;
+  opacity: .5;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+position: absolute;
+z-index: -1;
+}
+
+
+
+
+/*.App {
   text-align: center;
 }
 
@@ -21,4 +55,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+}*/

@@ -18,7 +18,7 @@ class App extends Component {
     this.setState({ dailyShowData: dailyShowData,
       dataName: "Daily Show Guests",
       chartType: "pie"
-      })
+    })
 
   }
 
@@ -26,7 +26,11 @@ class App extends Component {
 
 
     return (
-    <Graph data={this.state.dailyShowData} name={this.state.dataName} chartType={this.state.chartType} />
+      <div>
+      <h1 className='main-title'> PICTURE IT! </h1>
+      <h3 className='main-title'> An easy, fun way to make your data come to life... </h3>
+      <Graph data={this.state.dailyShowData} name={this.state.dataName} chartType={this.state.chartType} />
+      </div>
     );
   }
 }
