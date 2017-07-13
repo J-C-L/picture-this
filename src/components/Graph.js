@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {groupBy, reduce} from 'lodash';
 import c3 from 'c3'
+import './Graph.css';
 
 //_ is a common symbol for lodash, so could use
 // import _ from 'lodash';
@@ -26,13 +27,21 @@ class Graph extends Component {
         bindto: '#chart',
         data: {
           columns: columns,
-          type: 'pie'
+          type: this.props.chartType
         }
       });
+
+  
     }
     render() {
 
-      return <div id="chart">hi</div>;
+      return (
+        <div>
+        <h2 className="chart-title"> {this.props.name} </h2>
+        <h4 className="chart-title"> {this.props.chartType.toUpperCase() + ' CHART'} </h4>
+        <div id="chart"></div>
+        <div id="chart2"></div>
+        </div>)
     }
 
 

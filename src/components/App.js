@@ -14,8 +14,11 @@ class App extends Component {
   }
 
   componentWillMount(){
-  
-    this.setState({ dailyShowData: dailyShowData })
+
+    this.setState({ dailyShowData: dailyShowData,
+      dataName: "Daily Show Guests",
+      chartType: "pie"
+      })
 
   }
 
@@ -23,7 +26,7 @@ class App extends Component {
 
 
     return (
-    <Graph data={this.state.dailyShowData} />
+    <Graph data={this.state.dailyShowData} name={this.state.dataName} chartType={this.state.chartType} />
     );
   }
 }
