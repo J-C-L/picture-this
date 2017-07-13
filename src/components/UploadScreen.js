@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import FontIcon from 'material-ui/FontIcon';
-import {blue500, red500, greenA200} from 'material-ui/styles/colors';
 
 
 class UploadScreen extends Component {
@@ -14,7 +11,7 @@ class UploadScreen extends Component {
     }
   }
   onDrop(acceptedFiles, rejectedFiles) {
-    console.log('Accepted files: ', acceptedFiles[0].name);
+
     var fileToBeSent=this.state.fileToBeSent;
     fileToBeSent.push(acceptedFiles);
     this.setState({fileToBeSent});
@@ -23,24 +20,24 @@ class UploadScreen extends Component {
     for(var i in fileToBeSent){
       filePreview.push(<div>
         {fileToBeSent[i][0].name}
-        <MuiThemeProvider>
-        <a href="#"><FontIcon
-        className="material-icons customstyle"
-        color={blue500}
-        styles={{ top:10,}}
-        >clear</FontIcon></a>
-        </MuiThemeProvider>
+
         </div>
       )
     }
+      this.setState({fileToBeSent,filePreview});
+      console.log(this.state.fileToBeSent[0]);
   }
 
     render() {
       return (
         <div className="Upload">
         <Dropzone onDrop={(files) => this.onDrop(files)}>
-        <div>Try dropping some files here, or click to select files to upload.</div>
+        <div>Drag your data file here, or click to select file to upload.</div>
         </Dropzone>
+        <div>
+        File to be uploaded is:
+        {this.state.filePreview}
+        </div>
         </div>
       )
     }
