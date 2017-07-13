@@ -1,4 +1,8 @@
 
+h1.main-title {
+  margin-top: 0;
+  padding-top: 5px;
+}
 
 .main-title {
   text-align: center;
@@ -19,40 +23,40 @@ body::after {
   content: "";
   background: url("http://media.istockphoto.com/photos/blue-graph-paper-background-textured-picture-id173153967") no-repeat center center;
   background-size: cover;
-background-attachment: fixed;
+  background-attachment: fixed;
   opacity: .5;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
-position: absolute;
-z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 
 
 
 /*.App {
-  text-align: center;
+text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+animation: App-logo-spin infinite 20s linear;
+height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+background-color: #222;
+height: 150px;
+padding: 20px;
+color: white;
 }
 
 .App-intro {
-  font-size: large;
+font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
 }*/
