@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
-
+import Papa from 'papaparse';
 
 
 class UploadScreen extends Component {
@@ -8,24 +8,32 @@ class UploadScreen extends Component {
     super(props);
     this.state={
       fileToBeSent:[],
+      parsedData:{},
     }
   }
-  onDrop(acceptedFile, rejectedFile) {
-    var fileToBeSent=this.state.fileToBeSent;
-    fileToBeSent.push(acceptedFile);
-    this.setState({fileToBeSent});
+  onDrop(acceptedFiles, rejectedFile) {
+    var reader = new FileReader();
+    reader.onload = event => {
+      var json = Papa.parse(event.target.result, {
+        header: true,
+      })
+      // this.props.onSubmit({
+      //   fileName: acceptedFiles[0].name,
+      //   parsedData: json,
+      // })
+      this.setState({
+        fileName: acceptedFiles[0].name,
+        parsedData: json,
+      })
+    }
+    reader.readAsText(acceptedFiles[0])
 
-
-    console.log(this.state.fileToBeSent)
-    var filePreview=(<div>
-      {fileToBeSent[0][0].name}
-      </div>
-    )
-    this.setState({filePreview: filePreview})
-    console.log(this.state.fileToBeSent[0][0].name);
   }
 
+
+
   render() {
+      console.log(this.state)
     return (
       <div className="Upload">
       <Dropzone onDrop={(files) => this.onDrop(files)}>
@@ -33,7 +41,7 @@ class UploadScreen extends Component {
       </Dropzone>
       <div>
       File to be uploaded is:
-      {this.state.filePreview}
+      {this.state.fileName}
       </div>
       </div>
     )
