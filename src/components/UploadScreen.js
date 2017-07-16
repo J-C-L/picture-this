@@ -13,6 +13,7 @@ class UploadScreen extends Component {
     }
   }
 
+
   onDrop(acceptedFiles, rejectedFile) {
     var reader = new FileReader();
     reader.onload = event => {
@@ -29,6 +30,7 @@ class UploadScreen extends Component {
       })
       this.props.onFileUpload(this.state.parsedData.data);
     }
+
     reader.readAsText(acceptedFiles[0])
   }
 
