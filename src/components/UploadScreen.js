@@ -9,36 +9,38 @@ class UploadScreen extends Component {
     this.state={
       fileToBeSent:[],
       parsedData:{},
+      fileName:'',
     }
   }
+
   onDrop(acceptedFiles, rejectedFile) {
     var reader = new FileReader();
     reader.onload = event => {
-      var json = Papa.parse(event.target.result, {
+      var dataAsJSON = Papa.parse(event.target.result, {
         header: true,
       })
       // this.props.onSubmit({
       //   fileName: acceptedFiles[0].name,
-      //   parsedData: json,
+      //   parsedData: dataAsJSON,
       // })
       this.setState({
         fileName: acceptedFiles[0].name,
-        parsedData: json,
+        parsedData: dataAsJSON,
       })
+      this.props.onFileUpload(this.state.parsedData.data);
     }
     reader.readAsText(acceptedFiles[0])
-
   }
 
 
-
   render() {
-      console.log(this.state)
+      console.log(this.state);
     return (
       <div className="Upload">
       <Dropzone onDrop={(files) => this.onDrop(files)}>
       <div>Drag your data file here, or click to select file to upload.</div>
       </Dropzone>
+
       <div>
       File to be uploaded is:
       {this.state.fileName}
