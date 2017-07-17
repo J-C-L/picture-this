@@ -7,15 +7,14 @@ class UploadScreen extends Component {
   constructor(props){
     super(props);
     this.state={
-      fileToBeSent:[],
       parsedData:{},
       fileName:'',
     }
   }
 
-
   onDrop(acceptedFiles, rejectedFile) {
     var reader = new FileReader();
+
     reader.onload = event => {
       var dataAsJSON = Papa.parse(event.target.result, {
         header: true,
@@ -28,7 +27,7 @@ class UploadScreen extends Component {
         fileName: acceptedFiles[0].name,
         parsedData: dataAsJSON,
       })
-      this.props.onFileUpload(this.state.parsedData.data);
+      this.props.onFileUpload(this.state.parsedData.data, this.state.fileName);
     }
 
     reader.readAsText(acceptedFiles[0])

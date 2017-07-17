@@ -16,24 +16,30 @@ class App extends React.Component {
     this.setState({
       dataToGraph: null,
       // dataToGraph: dailyShowData,
-      dataName: "Daily Show Guests",
+      fileName: "",
       chartType: "pie"
     })
   }
+
+onFileUpload(dataToGraph, fileName){
+  console.log(this.state.fileName);
+  this.setState({dataToGraph});
+  this.setState({fileName});
+  console.log(this.state.fileName);
+}
 
 
   render() {
     // console.log('data to graph is');
     // console.log(this.state.dataToGraph);
-
     return (
       <div>
       <h1 className='main-title'> PICTURE IT! </h1>
       <h3 className='main-title'> An easy, fun way to make your data come to life... </h3>
 
-      <UploadScreen onFileUpload={dataToGraph => this.setState({dataToGraph})}    />
+      <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 
-      <Graph data={this.state.dataToGraph} name={this.state.dataName} chartType={this.state.chartType} />
+      <Graph data={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
       </div>
     );
   }
