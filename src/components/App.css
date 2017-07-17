@@ -1,4 +1,8 @@
 
+.Select-clear-zone{
+  visibility: hidden;
+}
+
 .chart-type-selector .heading {
   margin-bottom: 3px;
 }

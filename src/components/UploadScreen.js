@@ -39,28 +39,25 @@ class UploadScreen extends Component {
     var dropArea;
     if (this.state.fileName){
       dropArea = (
-        <div className="Upload">
+        <section>
           <Dropzone onDrop={(files) => this.onDrop(files)}>
             <div>Drag your data file here, or click to select file to upload.</div>
           </Dropzone>
-
           <div>
             Successfully uploaded file: {this.state.fileName}
           </div>
-        </div>
+        </section>
       );
     }else{
       dropArea = (
-        <div className="Upload">
           <Dropzone onDrop={(files) => this.onDrop(files)}>
             <div>Drag your data file here, or click to select file to upload.</div>
           </Dropzone>
-        </div>
       );
     }
 
     return (
-      <div>
+      <div className="Upload">
       {dropArea}
       </div>
     );

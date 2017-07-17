@@ -35,9 +35,8 @@ class Graph extends Component {
 
   }
   render() {
-
+console.log(this.props.chartType);
     if (this.props.dataToGraph && this.props.chartType){
-      console.log(this.props.dataToGraph)
       return (
         <div>
           <h2 className="chart-title">

@@ -26,10 +26,9 @@ class App extends React.Component {
   }
 
   render() {
-
     var chartOptions = [
-      { value: 'pie', label: 'Pie Chart', clearableValue: false  },
-      { value: 'donut', label: 'Donut Chart', clearableValue: false  },
+      { value: 'pie', label: 'Pie Chart'},
+      { value: 'donut', label: 'Donut Chart'},
     ];
 
     return (
@@ -43,7 +42,7 @@ class App extends React.Component {
         <h3 className="heading"> Chart Type:</h3>
         <Select
           name="Chart-Type"
-          value="pie"
+          value=""
           options={chartOptions}
           onChange={val => this.setState({chartType:val.value })}
           />
