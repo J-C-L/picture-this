@@ -10,43 +10,46 @@ import './Graph.css';
 
 class Graph extends Component {
 
-    componentDidMount() {
-      this.updateChart();
-    }
-    componentDidUpdate() {
-      this.updateChart();
-    }
-    updateChart() {
-      const groupedData = groupBy(this.props.data, 'Group');
+  componentDidMount() {
+    this.updateChart();
+  }
+  componentDidUpdate() {
+    this.updateChart();
+  }
+  updateChart() {
+    const groupedData = groupBy(this.props.dataToGraph, 'Group');
 
-      const columns = reduce(groupedData, (result, value, key) =>
-      {
-        result.push([key, value.length]);
-        return result;
-      }, []);
+    const columns = reduce(groupedData, (result, value, key) =>
+    {
+      result.push([key, value.length]);
+      return result;
+    }, []);
 
-      c3.generate({
-        bindto: '#chart',
-        data: {
-          columns: columns,
-          type: this.props.chartType
-        }
-      });
+    c3.generate({
+      bindto: '#chart',
+      data: {
+        columns: columns,
+        type: this.props.chartType
+      }
+    });
 
-    }
-    render() {
+  }
+  render() {
 
+    if (this.props.dataToGraph && this.props.chartType){
+      console.log(this.props.dataToGraph)
       return (
         <div>
-        <h2 className="chart-title">
-          File Being Graphed: {this.props.name} </h2>
-        <h4 className="chart-title"> Chart Type: {this.props.chartType.toUpperCase()} </h4>
-        <div id="chart"></div>
-        <div id="chart2"></div>
+          <h2 className="chart-title">
+            File Being Graphed: {this.props.name} </h2>
+          <h4 className="chart-title"> Chart Type: {this.props.chartType.toUpperCase()} </h4>
+          <div id="chart"></div>
+          <div id="chart2"></div>
         </div>)
+      }else{
+        return (<div></div>)
+      }
     }
+  }
 
-
-}
-
-export default Graph;
+  export default Graph;

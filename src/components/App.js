@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import dailyShowData from '../assets/DailyShow.json';
+// import dailyShowData from '../assets/DailyShow.json';
 import Graph from './Graph';
 import UploadScreen from './UploadScreen';
 import Select from 'react-select';
@@ -16,7 +16,7 @@ class App extends React.Component {
     this.setState({
       dataToGraph: null,
       fileName: "",
-      chartType: ""
+      chartType: null
     })
   }
 
@@ -28,8 +28,8 @@ class App extends React.Component {
   render() {
 
     var chartOptions = [
-      { value: 'pie', label: 'Pie Chart' },
-      { value: 'donut', label: 'Donut Chart' },
+      { value: 'pie', label: 'Pie Chart', clearableValue: false  },
+      { value: 'donut', label: 'Donut Chart', clearableValue: false  },
     ];
 
     return (
@@ -41,12 +41,12 @@ class App extends React.Component {
 
         <Select className="chart-type-selector"
           name="Chart-Type"
-          value=""
+          value="pie"
           options={chartOptions}
           onChange={val => this.setState({chartType:val.value })}
           />
 
-        <Graph data={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
+        <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
       </div>
     );
   }

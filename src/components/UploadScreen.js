@@ -35,7 +35,6 @@ class UploadScreen extends Component {
 
 
   render() {
-      console.log(this.state);
     return (
       <div className="Upload">
       <Dropzone onDrop={(files) => this.onDrop(files)}>
