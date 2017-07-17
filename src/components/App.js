@@ -39,12 +39,16 @@ class App extends React.Component {
 
         <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 
-        <Select className="chart-type-selector"
+      <section className="chart-type-selector">
+        <h3 className="heading"> Chart Type:</h3>
+        <Select
           name="Chart-Type"
           value="pie"
           options={chartOptions}
           onChange={val => this.setState({chartType:val.value })}
           />
+      </section>
+
 
         <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
       </div>

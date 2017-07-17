@@ -1,4 +1,11 @@
 
+.chart-type-selector .heading {
+  margin-bottom: 3px;
+}
+.chart-type-selector{
+  margin-left: 5px;
+}
+
 h1.main-title {
   margin-top: 0;
   padding-top: 5px;
