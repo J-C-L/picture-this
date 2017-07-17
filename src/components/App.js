@@ -27,8 +27,8 @@ class App extends React.Component {
 
   render() {
     var chartOptions = [
-      { value: 'pie', label: 'Pie Chart'},
-      { value: 'donut', label: 'Donut Chart'},
+      { value: "pie", label: "Pie Chart"},
+      { value: "donut", label: "Donut Chart"},
     ];
 
     return (
