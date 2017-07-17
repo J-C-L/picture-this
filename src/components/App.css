@@ -33,7 +33,9 @@ body::after {
   z-index: -1;
 }
 
-
+.Select{
+  max-width: 15%;
+}
 
 
 /*.App {

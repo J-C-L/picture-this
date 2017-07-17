@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import {groupBy, reduce} from 'lodash';
+//_ is a common symbol for lodash, so could use
+// import _ from 'lodash';
 import c3 from 'c3'
 import './Graph.css';
 
-//_ is a common symbol for lodash, so could use
-// import _ from 'lodash';
+
+
 
 class Graph extends Component {
 
