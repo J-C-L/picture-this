@@ -20,16 +20,29 @@ class GraphTimeSeries extends Component {
 
   updateChart() {
 
-    console.log(this.props.dataToGraph);
+  var data2 = ['data2', 130, 300, 200, 300, 250, 450];
+
+
+
+
+     console.log(this.props.dataToGraph);
+
+     var yValues =['series'];
+    var arrayYValues = this.props.dataToGraph.map(function(obj){
+      return obj['y-axis'];
+    });
+    console.log(yValues);
+
+    yValues =  yValues.concat(arrayYValues);
 
     c3.generate({
       bindto: '#chart2',
       data: {
         x: 'x',
         columns: [
-          ['x', 30, 50, 100, 230, 300, 310],
-          ['data1', 30, 200, 100, 400, 150, 250],
-          ['data2', 130, 300, 200, 300, 250, 450]
+          ['x', 10, 20, 30, 40, 50],
+          yValues
+
         ]
       }
     });
@@ -38,7 +51,7 @@ class GraphTimeSeries extends Component {
   render() {
     return (
       <div>
-    <p>Here's the line cahrt:</p>
+    <p>Here's the line chart:</p>
     <div id="chart2"></div>
     </div>
     );

@@ -15,7 +15,7 @@ class App extends React.Component {
   }
   componentWillMount(){
     this.setState({
-      dataToGraph: null,
+      dataToGraph: [],
       fileName: "",
       chartType: null
     })
