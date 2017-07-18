@@ -43,7 +43,6 @@ class Graph extends Component {
             File Being Graphed: {this.props.name} </h2>
           <h4 className="chart-title"> Chart Type: {this.props.chartType.toUpperCase()} </h4>
           <div id="chart"></div>
-
         </div>)
       }else{
         return (<div></div>)

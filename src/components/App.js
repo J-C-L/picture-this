@@ -5,8 +5,7 @@ import Graph from './Graph';
 import GraphTimeSeries from './GraphTimeSeries';
 import UploadScreen from './UploadScreen';
 import ChartTypeDropdown from './ChartTypeDropdown';
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
+
 
 
 class App extends React.Component {
@@ -38,7 +37,10 @@ class App extends React.Component {
         <ChartTypeDropdown chartType={this.state.chartType}
             onChartSelect={chartType => this.setState({chartType})}/>
 
-        <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
+          // <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
+
+        <GraphTimeSeries dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
+
       </div>
     );
   }

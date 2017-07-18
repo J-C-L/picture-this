@@ -18,40 +18,32 @@ class GraphTimeSeries extends Component {
     this.updateChart();
   }
 
-  processData(data){
-    // PapaParse creates an object with the data returned in 'data':
-    var d = Papa.parse(data, { quotes: false, delimiter: ",", header: true,});
-     //d = d.data;
-    console.log(d);
-  }
-
   updateChart() {
-      this.processData(testDataXY);
+
+    console.log(this.props.dataToGraph);
+
+    c3.generate({
+      bindto: '#chart2',
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 30, 50, 100, 230, 300, 310],
+          ['data1', 30, 200, 100, 400, 150, 250],
+          ['data2', 130, 300, 200, 300, 250, 450]
+        ]
+      }
+    });
   }
-
-
-
-    // const groupedData = groupBy(this.props.dataToGraph, 'Group');
-
-    // const columns = reduce(groupedData, (result, value, key) =>
-    // {
-    //   result.push([key, value.length]);
-    //   return result;
-    // }, []);
-
-    // c3.generate({
-    //   bindto: '#chart',
-    //   data: {
-    //     columns: columns,
-    //     type: this.props.chartType
-    //   }
-    // });
-
-
 
   render() {
-      return (<div> Hi </div>)
-      }
+    return (
+      <div>
+    <p>Here's the line cahrt:</p>
+    <div id="chart2"></div>
+    </div>
+    );
   }
 
-  export default GraphTimeSeries ;
+}
+
+export default GraphTimeSeries ;
