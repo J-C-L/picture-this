@@ -48,6 +48,8 @@ class App extends React.Component {
 
         <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 
+        {console.log(this.state.dataToGraph)}
+        
         <ChartTypeDropdown chartType={this.state.chartType}
           onChartSelect={chartType => this.setState({chartType})}/>
 

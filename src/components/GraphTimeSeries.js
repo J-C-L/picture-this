@@ -20,37 +20,41 @@ class GraphTimeSeries extends Component {
 
   updateChart() {
 
-  // var data2 = ['data2', 130, 300, 200, 300, 250, 450];
-// if (this.props.dataToGraph)
-// {
-//   console.log(this.props.dataToGraph);
-//   console.log('hi');
-//   console.log(Object.keys(this.props.dataToGraph));
-   // console.log(Object.keys(this.props.dataToGraph[0]));
-// }
 
-  //   var yValues =['series'];
-  //   var arrayYValues = this.props.dataToGraph.map(function(obj){
-  //   return obj['y-axis'];
-  //   });
-  //   console.log(yValues);
-  //
-  //   yValues =  yValues.concat(arrayYValues);
-  //
-  //   c3.generate({
-  //     bindto: '#chart2',
-  //     data: {
-  //       x: 'x',
-  //       columns: [
-  //         ['x', 10, 20, 30, 40, 50],
-  //         yValues
-  //
-  //       ]
-  //     }
-  //   });
+    var key2 = Object.keys(this.props.dataToGraph[0])[1]
+
+
+    var yValues =[key2];
+    var arrayYValues = this.props.dataToGraph.map(function(obj){
+    return obj[key2];
+    });
+
+    yValues =  yValues.concat(arrayYValues);
+
+    var key1 = Object.keys(this.props.dataToGraph[0])[0]
+    var xValues = ['x']
+    var arrayXValues = this.props.dataToGraph.map(function(obj){
+    return obj[key1];
+    });
+
+      xValues =  xValues.concat(arrayXValues);
+
+    c3.generate({
+      bindto: '#chart2',
+      data: {
+        x: 'x',
+        columns: [
+          xValues,
+          yValues
+
+        ]
+      }
+    });
    }
 
   render() {
+
+
     return (
       <div>
     <p>Here's the line chart:</p>
