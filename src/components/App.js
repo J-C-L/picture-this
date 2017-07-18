@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 // import dailyShowData from '../assets/DailyShow.json';
 import Graph from './Graph';
+import GraphTimeSeries from './GraphTimeSeries';
 import UploadScreen from './UploadScreen';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
@@ -48,6 +49,8 @@ class App extends React.Component {
             onChange={val => this.setState({chartType:val.value })}
             />
         </section>
+
+        <GraphTimeSeries />
 
 
         <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
