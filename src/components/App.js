@@ -50,7 +50,7 @@ class App extends React.Component {
             />
         </section>
 
-        <GraphTimeSeries />
+    
 
 
         <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />

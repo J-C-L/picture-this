@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import {groupBy, reduce} from 'lodash';
-import accessToElectricityData from '../assets/WorldBank-AccessToElectricity.csv';
+// import accessToElectricityData from '../assets/WorldBank-AccessToElectricity.csv';
 //_ is a common symbol for lodash, so could use
 // import _ from 'lodash';
+import testDataXY from '../assets/Test-Data-xy.csv'
 import c3 from 'c3'
 import './Graph.css';
 import Papa from 'papaparse';
-
-
 
 
 class GraphTimeSeries extends Component {
@@ -22,12 +21,12 @@ class GraphTimeSeries extends Component {
   processData(data){
     // PapaParse creates an object with the data returned in 'data':
     var d = Papa.parse(data, { quotes: false, delimiter: ",", header: true,});
-    // d = d.data;
-    console.log(data);
+     //d = d.data;
+    console.log(d);
   }
 
   updateChart() {
-      this.processData(accessToElectricityData);
+      this.processData(testDataXY);
   }
 
 

@@ -35,7 +35,7 @@ class Graph extends Component {
 
   }
   render() {
-console.log(this.props.chartType);
+
     if (this.props.dataToGraph && this.props.chartType){
       return (
         <div>
@@ -43,7 +43,7 @@ console.log(this.props.chartType);
             File Being Graphed: {this.props.name} </h2>
           <h4 className="chart-title"> Chart Type: {this.props.chartType.toUpperCase()} </h4>
           <div id="chart"></div>
-      
+
         </div>)
       }else{
         return (<div></div>)
