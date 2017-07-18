@@ -21,7 +21,6 @@ class UploadScreen extends Component {
         header: true,
       })
 
-
       this.setState({
         fileName: acceptedFiles[0].name,
         parsedData: dataAsJSON,
