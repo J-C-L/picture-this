@@ -4,6 +4,7 @@ import './App.css';
 import Graph from './Graph';
 import GraphTimeSeries from './GraphTimeSeries';
 import UploadScreen from './UploadScreen';
+import ChartTypeDropdown from './ChartTypeDropdown';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
@@ -26,13 +27,7 @@ class App extends React.Component {
     this.setState({fileName});
   }
 
-
   render() {
-    var chartOptions = [
-      { value: "pie", label: "Pie Chart"},
-      { value: "donut", label: "Donut Chart"},
-    ];
-
     return (
       <div>
         <h1 className='main-title'> PICTURE IT! </h1>
@@ -40,18 +35,8 @@ class App extends React.Component {
 
         <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 
-        <section className="chart-type-selector">
-          <h3 className="heading"> Chart Type:</h3>
-          <Select
-            name="Chart-Type"
-            value={this.state.chartType}
-            options={chartOptions}
-            onChange={val => this.setState({chartType:val.value })}
-            />
-        </section>
-
-    
-
+        <ChartTypeDropdown chartType={this.state.chartType}
+            onChartSelect={chartType => this.setState({chartType})}/>
 
         <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
       </div>
