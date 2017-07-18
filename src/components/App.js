@@ -15,7 +15,7 @@ class App extends React.Component {
   }
   componentWillMount(){
     this.setState({
-      dataToGraph: [],
+      dataToGraph: null,
       fileName: "",
       chartType: null
     })
@@ -25,6 +25,16 @@ class App extends React.Component {
     this.setState({dataToGraph});
     this.setState({fileName});
   }
+
+
+  renderPieChart(dataToGraph, chartType){
+    if (dataToGraph && (chartType=='pie'|| chartType=='donut')){
+      return (
+         <Graph dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
+      )
+    }
+  }
+
 
   render() {
     return (
@@ -37,9 +47,8 @@ class App extends React.Component {
         <ChartTypeDropdown chartType={this.state.chartType}
             onChartSelect={chartType => this.setState({chartType})}/>
 
-          // <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
+        {this.renderPieChart(this.state.dataToGraph, this.state.chartType)}
 
-        <GraphTimeSeries dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
 
       </div>
     );

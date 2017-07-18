@@ -26,7 +26,7 @@ class UploadScreen extends Component {
         parsedData: dataAsJSON,
       })
       this.props.onFileUpload(this.state.parsedData.data, this.state.fileName);
-      console.log(this.state.parsedData.data);
+      // console.log(this.state.parsedData.data);
     }
 
     reader.readAsText(acceptedFiles[0])

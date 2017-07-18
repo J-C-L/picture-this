@@ -45,7 +45,7 @@ class Graph extends Component {
           <div id="chart"></div>
         </div>)
       }else{
-        return (<div></div>)
+        return (<div>HHHHHH</div>)
       }
     }
   }

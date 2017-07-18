@@ -20,16 +20,18 @@ class GraphTimeSeries extends Component {
 
   updateChart() {
 
-  var data2 = ['data2', 130, 300, 200, 300, 250, 450];
+  // var data2 = ['data2', 130, 300, 200, 300, 250, 450];
+// if (this.props.dataToGraph)
+// {
+//   console.log(this.props.dataToGraph);
+//   console.log('hi');
+//   console.log(Object.keys(this.props.dataToGraph));
+   // console.log(Object.keys(this.props.dataToGraph[0]));
+// }
 
-
-
-
-     console.log(this.props.dataToGraph);
-
-     var yValues =['series'];
+    var yValues =['series'];
     var arrayYValues = this.props.dataToGraph.map(function(obj){
-      return obj['y-axis'];
+    return obj['y-axis'];
     });
     console.log(yValues);
 
