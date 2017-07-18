@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 // import dailyShowData from '../assets/DailyShow.json';
 import Graph from './Graph';
+import GraphD3 from './GraphD3';
 import UploadScreen from './UploadScreen';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
@@ -49,7 +50,8 @@ class App extends React.Component {
             />
         </section>
 
-
+        <GraphD3 />
+        
         <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
       </div>
     );
