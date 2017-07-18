@@ -27,10 +27,14 @@ class App extends React.Component {
   }
 
 
-  renderPieChart(dataToGraph, chartType){
+  renderChart(dataToGraph, chartType){
     if (dataToGraph && (chartType=='pie'|| chartType=='donut')){
       return (
-         <Graph dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
+        <Graph dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
+      )
+    }else if(dataToGraph && chartType=='scatter'){
+      return(
+        <GraphTimeSeries dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
       )
     }
   }
@@ -45,10 +49,9 @@ class App extends React.Component {
         <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 
         <ChartTypeDropdown chartType={this.state.chartType}
-            onChartSelect={chartType => this.setState({chartType})}/>
+          onChartSelect={chartType => this.setState({chartType})}/>
 
-        {this.renderPieChart(this.state.dataToGraph, this.state.chartType)}
-
+        {this.renderChart(this.state.dataToGraph, this.state.chartType)}
 
       </div>
     );

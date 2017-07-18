@@ -29,26 +29,26 @@ class GraphTimeSeries extends Component {
    // console.log(Object.keys(this.props.dataToGraph[0]));
 // }
 
-    var yValues =['series'];
-    var arrayYValues = this.props.dataToGraph.map(function(obj){
-    return obj['y-axis'];
-    });
-    console.log(yValues);
-
-    yValues =  yValues.concat(arrayYValues);
-
-    c3.generate({
-      bindto: '#chart2',
-      data: {
-        x: 'x',
-        columns: [
-          ['x', 10, 20, 30, 40, 50],
-          yValues
-
-        ]
-      }
-    });
-  }
+  //   var yValues =['series'];
+  //   var arrayYValues = this.props.dataToGraph.map(function(obj){
+  //   return obj['y-axis'];
+  //   });
+  //   console.log(yValues);
+  //
+  //   yValues =  yValues.concat(arrayYValues);
+  //
+  //   c3.generate({
+  //     bindto: '#chart2',
+  //     data: {
+  //       x: 'x',
+  //       columns: [
+  //         ['x', 10, 20, 30, 40, 50],
+  //         yValues
+  //
+  //       ]
+  //     }
+  //   });
+   }
 
   render() {
     return (
