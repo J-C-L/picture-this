@@ -54,7 +54,6 @@ class GraphTimeSeries extends Component {
 
   render() {
 
-
     return (
       <div>
     <p>Here's the line chart:</p>

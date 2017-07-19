@@ -4,6 +4,7 @@ import {groupBy, reduce} from 'lodash';
 // import _ from 'lodash';
 import c3 from 'c3'
 import './Graph.css';
+import CategoryDropdown from './CategoryDropdown';
 
 
 
@@ -32,22 +33,20 @@ class Graph extends Component {
         type: this.props.chartType
       }
     });
-
   }
   render() {
+    return (
+      <div>
 
-    if (this.props.dataToGraph && this.props.chartType){
-      return (
-        <div>
-          <h2 className="chart-title">
-            File Being Graphed: {this.props.name} </h2>
-          <h4 className="chart-title"> Chart Type: {this.props.chartType.toUpperCase()} </h4>
-          <div id="chart"></div>
-        </div>)
-      }else{
-        return (<div>HHHHHH</div>)
-      }
-    }
+        <CategoryDropdown dataToGraph={this.props.dataToGraph} />
+
+        <h2 className="chart-title">
+          File Being Graphed: {this.props.name} </h2>
+        <h4 className="chart-title"> Chart Type: {this.props.chartType.toUpperCase()} </h4>
+        <div id="chart"></div>
+      </div>
+    )
   }
+}
 
-  export default Graph;
+export default Graph;

@@ -12,14 +12,20 @@ class App extends React.Component {
 
   constructor(){
     super();
-  }
-  componentWillMount(){
-    this.setState({
+    this.state={
       dataToGraph: null,
       fileName: "",
       chartType: null
-    })
+    };
   }
+
+  // componentWillMount(){
+  //   this.setState({
+  //     dataToGraph: null,
+  //     fileName: "",
+  //     chartType: null
+  //   })
+  // }
 
   onFileUpload(dataToGraph, fileName){
     this.setState({dataToGraph});
@@ -49,7 +55,7 @@ class App extends React.Component {
         <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 
         {console.log(this.state.dataToGraph)}
-        
+
         <ChartTypeDropdown chartType={this.state.chartType}
           onChartSelect={chartType => this.setState({chartType})}/>
 
