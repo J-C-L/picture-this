@@ -7,7 +7,6 @@ class CategoryDropdown extends React.Component {
 
   constructor(){
     super();
-    
   }
 
   render() {
@@ -15,18 +14,22 @@ class CategoryDropdown extends React.Component {
     var categoryChoices = Object.keys(this.props.dataToGraph[0]);
 
     var chartOptions = [];
+
     for (var i=0; i<categoryChoices.length; i++){
       chartOptions.push({value:categoryChoices[i], label:categoryChoices[i]});
     }
 
-      return (
+
+
+    return (
       <div>
         <section className="category-selector">
           <h2 className="heading"> Which category would you like to see graphed?</h2>
           <Select
             name="Category"
-            value=""
+            value={this.props.category}
             options={chartOptions}
+            onChange={val => this.props.onCategorySelect(val.value)}
             />
         </section>
       </div>
