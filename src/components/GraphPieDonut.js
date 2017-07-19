@@ -37,7 +37,7 @@ class GraphPieDonut extends Component {
       bindto: '#chart',
       data: {
         columns: columns,
-        type: this.props.chartType
+        type: this.props.chartType.toLowerCase()
       }
     });
   }
@@ -57,7 +57,8 @@ class GraphPieDonut extends Component {
 
           <h2 className="chart-title">
             File Being Graphed: {this.props.name} </h2>
-          <h4 className="chart-title"> Chart Type: {this.props.chartType.toUpperCase()} </h4>
+          <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
+          <h4 className="chart-title"> Category shown: {this.state.category} </h4>
           <div id="chart"></div>
         </div>
       )

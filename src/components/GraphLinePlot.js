@@ -9,7 +9,7 @@ import './GraphPieDonut.css';
 import Papa from 'papaparse';
 
 
-class GraphTimeSeries extends Component {
+class GraphLinePlot extends Component {
 
   componentDidMount() {
     this.updateChart();
@@ -26,7 +26,7 @@ class GraphTimeSeries extends Component {
 
     var yValues =[key2];
     var arrayYValues = this.props.dataToGraph.map(function(obj){
-    return obj[key2];
+      return obj[key2];
     });
 
     yValues =  yValues.concat(arrayYValues);
@@ -34,10 +34,10 @@ class GraphTimeSeries extends Component {
     var key1 = Object.keys(this.props.dataToGraph[0])[0]
     var xValues = ['x']
     var arrayXValues = this.props.dataToGraph.map(function(obj){
-    return obj[key1];
+      return obj[key1];
     });
 
-      xValues =  xValues.concat(arrayXValues);
+    xValues =  xValues.concat(arrayXValues);
 
     c3.generate({
       bindto: '#chart2',
@@ -50,18 +50,20 @@ class GraphTimeSeries extends Component {
         ]
       }
     });
-   }
+  }
 
   render() {
 
     return (
       <div>
-    <p>Here's the line chart:</p>
-    <div id="chart2"></div>
-    </div>
+        <h2 className="chart-title">
+          File Being Graphed: {this.props.name} </h2>
+        <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
+        <div id="chart2"></div>
+      </div>
     );
   }
 
 }
 
-export default GraphTimeSeries ;
+export default GraphLinePlot ;

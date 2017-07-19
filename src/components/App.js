@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 // import dailyShowData from '../assets/DailyShow.json';
 import GraphPieDonut from './GraphPieDonut';
-import GraphTimeSeries from './GraphTimeSeries';
+import GraphLinePlot from './GraphLinePlot';
 import UploadScreen from './UploadScreen';
 import ChartTypeDropdown from './ChartTypeDropdown';
 
@@ -33,14 +33,14 @@ class App extends React.Component {
   }
 
 
-  renderChart(dataToGraph, chartType){
-    if (dataToGraph && (chartType=='pie'|| chartType=='donut')){
+  renderChart(dataToGraph, chartType, name){
+    if (dataToGraph && (chartType=='Pie'|| chartType=='Donut')){
       return (
-        <GraphPieDonut dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
+        <GraphPieDonut dataToGraph={dataToGraph} name={name} chartType={chartType} />
       )
-    }else if(dataToGraph && chartType=='scatter'){
+    }else if(dataToGraph && chartType=='Line'){
       return(
-        <GraphTimeSeries dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
+        <GraphLinePlot dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
       )
     }
   }
@@ -59,7 +59,7 @@ class App extends React.Component {
         <ChartTypeDropdown chartType={this.state.chartType}
           onChartSelect={chartType => this.setState({chartType})}/>
 
-        {this.renderChart(this.state.dataToGraph, this.state.chartType)}
+        {this.renderChart(this.state.dataToGraph, this.state.chartType, this.state.fileName)}
 
       </div>
     );
