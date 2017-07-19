@@ -34,7 +34,6 @@ class XAxisSelector extends React.Component {
         </section>
       </div>
     )
-
   }
 }
 

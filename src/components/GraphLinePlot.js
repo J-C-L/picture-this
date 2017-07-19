@@ -60,11 +60,15 @@ class GraphLinePlot extends Component {
     });
   }
 
+
+
   render() {
+    console.log(this.state.xAxis);
+
     if (!this.state.xAxis){
       return(
         <XAxisSelector
-          category={this.state.xAxis} dataToGraph={this.props.dataToGraph} onCategorySelect={xAxis => this.setState({xAxis})} />
+          category={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
       )
     }else{
       return (
