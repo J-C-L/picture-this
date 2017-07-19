@@ -22,9 +22,9 @@ class YAxisSelector extends React.Component {
 
 
     return (
-      <div>
+      <div className="xyAxisSelector">
         <section className="x-axis-selector">
-          <h2 className="heading"> Which category would you like to use for your y-axis?</h2>
+          <h4 className="heading"> Which category would you like to use for your y-axis?</h4>
           <Select
             name="Y-Axis"
             value={this.props.yAxis}

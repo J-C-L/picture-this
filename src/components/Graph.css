@@ -1,0 +1,22 @@
+
+.chart-title {
+  color: blue;
+  text-align: center;
+}
+
+
+.xyAxisSelector .heading {
+  margin-bottom: 3px;
+}
+
+.xyAxisSelector{
+  margin-left: 5px;
+  margin-right: 20px;
+
+}
+
+
+.xyAxisSelector{
+  max-width: 30%;
+  display: inline-block;
+}

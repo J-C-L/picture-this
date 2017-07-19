@@ -5,7 +5,7 @@ import {groupBy, reduce} from 'lodash';
 // import _ from 'lodash';
 import testDataXY from '../assets/Test-Data-xy.csv'
 import c3 from 'c3'
-import './GraphPieDonut.css';
+import './Graph.css';
 import XAxisSelector from './XAxisSelector';
 import YAxisSelector from './YAxisSelector';
 import Papa from 'papaparse';

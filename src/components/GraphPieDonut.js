@@ -3,7 +3,7 @@ import {groupBy, reduce} from 'lodash';
 //_ is a common symbol for lodash, so could use
 // import _ from 'lodash';
 import c3 from 'c3'
-import './GraphPieDonut.css';
+import './Graph.css';
 import PieDonutCategoryDropdown from './PieDonutCategoryDropdown';
 
 
