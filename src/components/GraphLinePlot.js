@@ -7,6 +7,7 @@ import testDataXY from '../assets/Test-Data-xy.csv'
 import c3 from 'c3'
 import './GraphPieDonut.css';
 import XAxisSelector from './XAxisSelector';
+import YAxisSelector from './YAxisSelector';
 import Papa from 'papaparse';
 
 
@@ -29,12 +30,8 @@ class GraphLinePlot extends Component {
   updateChart() {
 
     if (!this.state.xAxis){
-      console.log(this.state.xAxis);
       return;
     }else{
-      console.log(this.state.xAxis);
-      console.log(Object.keys(this.props.dataToGraph[0])[0]);
-
       var key1 = this.state.xAxis;
       // var key1 = Object.keys(this.props.dataToGraph[0])[0];
       var xValues = ['x']
@@ -71,18 +68,22 @@ class GraphLinePlot extends Component {
 
   render() {
 
+console.log(this.state.yAxis);
 
     if (!this.state.xAxis){
       return(
         <XAxisSelector
-          category={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
+          xAxis={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
       )
     }else{
       return (
         <div>
 
           <XAxisSelector
-            category={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
+            xAxis={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
+
+          <YAxisSelector
+            yAxis={this.state.yAxis} dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
 
           <h2 className="chart-title">
             File Being Graphed: {this.props.name} </h2>
