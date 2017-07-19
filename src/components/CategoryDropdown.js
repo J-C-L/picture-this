@@ -7,6 +7,7 @@ class CategoryDropdown extends React.Component {
 
   constructor(){
     super();
+    
   }
 
   render() {

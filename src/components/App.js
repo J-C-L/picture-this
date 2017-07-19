@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 // import dailyShowData from '../assets/DailyShow.json';
-import Graph from './Graph';
+import GraphPieDonut from './GraphPieDonut';
 import GraphTimeSeries from './GraphTimeSeries';
 import UploadScreen from './UploadScreen';
 import ChartTypeDropdown from './ChartTypeDropdown';
@@ -36,7 +36,7 @@ class App extends React.Component {
   renderChart(dataToGraph, chartType){
     if (dataToGraph && (chartType=='pie'|| chartType=='donut')){
       return (
-        <Graph dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
+        <GraphPieDonut dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
       )
     }else if(dataToGraph && chartType=='scatter'){
       return(

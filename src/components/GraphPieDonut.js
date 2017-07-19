@@ -9,7 +9,7 @@ import CategoryDropdown from './CategoryDropdown';
 
 
 
-class Graph extends Component {
+class GraphPieDonut extends Component {
 
   componentDidMount() {
     this.updateChart();
@@ -49,4 +49,4 @@ class Graph extends Component {
   }
 }
 
-export default Graph;
+export default GraphPieDonut;
