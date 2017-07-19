@@ -29,7 +29,7 @@ class GraphLinePlot extends Component {
 
   updateChart() {
 
-    if (!this.state.xAxis){
+    if (!this.state.xAxis || !this.state.yAxis){
       return;
     }else{
       var key1 = this.state.xAxis;
@@ -38,12 +38,10 @@ class GraphLinePlot extends Component {
       var arrayXValues = this.props.dataToGraph.map(function(obj){
         return obj[key1];
       });
-
       xValues =  xValues.concat(arrayXValues);
 
-
-      var key2 = Object.keys(this.props.dataToGraph[0])[1]
-
+      var key2 = this.state.yAxis;
+      // var key2 = Object.keys(this.props.dataToGraph[0])[1]
       var yValues =[key2];
       var arrayYValues = this.props.dataToGraph.map(function(obj){
         return obj[key2];
@@ -68,12 +66,22 @@ class GraphLinePlot extends Component {
 
   render() {
 
-console.log(this.state.yAxis);
+    console.log(this.state.yAxis);
 
     if (!this.state.xAxis){
       return(
         <XAxisSelector
           xAxis={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
+      )
+    }else if(!this.state.yAxis) {
+      return(
+        <div>
+        <XAxisSelector
+          xAxis={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
+
+        <YAxisSelector
+          yAxis={this.state.yAxis} dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
+        </div>
       )
     }else{
       return (
