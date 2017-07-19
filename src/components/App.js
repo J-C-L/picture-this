@@ -30,6 +30,7 @@ class App extends React.Component {
   onFileUpload(dataToGraph, fileName){
     this.setState({dataToGraph});
     this.setState({fileName});
+    this.setState({chartType: null});
   }
 
 

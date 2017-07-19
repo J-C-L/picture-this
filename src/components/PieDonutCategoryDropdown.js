@@ -3,7 +3,7 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
 
-class CategoryDropdown extends React.Component {
+class PieDonutCategoryDropdown extends React.Component {
 
   constructor(){
     super();
@@ -38,4 +38,4 @@ class CategoryDropdown extends React.Component {
   }
 }
 
-export default CategoryDropdown;
+export default PieDonutCategoryDropdown;
