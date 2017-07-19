@@ -46,7 +46,8 @@ class GraphPieDonut extends Component {
 
     if (!this.state.category){
       return (
-        <PieDonutCategoryDropdown dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
+        <PieDonutCategoryDropdown
+          category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
       )
     }else{
       return (

@@ -6,10 +6,18 @@ import {groupBy, reduce} from 'lodash';
 import testDataXY from '../assets/Test-Data-xy.csv'
 import c3 from 'c3'
 import './GraphPieDonut.css';
+import XAxisSelector from './XAxisSelector';
 import Papa from 'papaparse';
 
 
 class GraphLinePlot extends Component {
+  constructor(){
+    super();
+    this.state={
+      xAxis: null,
+      yAxis: null,
+    };
+  }
 
   componentDidMount() {
     this.updateChart();
@@ -53,17 +61,26 @@ class GraphLinePlot extends Component {
   }
 
   render() {
+    if (!this.state.xAxis){
+      return(
+        <XAxisSelector
+          category={this.state.xAxis} dataToGraph={this.props.dataToGraph} onCategorySelect={xAxis => this.setState({xAxis})} />
+      )
+    }else{
+      return (
+        <div>
 
-    return (
-      <div>
-        <h2 className="chart-title">
-          File Being Graphed: {this.props.name} </h2>
-        <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
-        <div id="chart2"></div>
-      </div>
-    );
+          <XAxisSelector
+            category={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
+
+          <h2 className="chart-title">
+            File Being Graphed: {this.props.name} </h2>
+          <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
+          <div id="chart2"></div>
+        </div>
+      );
+    }
   }
-
 }
 
 export default GraphLinePlot ;
