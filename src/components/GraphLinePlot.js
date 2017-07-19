@@ -28,42 +28,49 @@ class GraphLinePlot extends Component {
 
   updateChart() {
 
+    if (!this.state.xAxis){
+      console.log(this.state.xAxis);
+      return;
+    }else{
+      console.log(this.state.xAxis);
+      console.log(Object.keys(this.props.dataToGraph[0])[0]);
 
-    var key2 = Object.keys(this.props.dataToGraph[0])[1]
+      var key1 = this.state.xAxis;
+      // var key1 = Object.keys(this.props.dataToGraph[0])[0];
+      var xValues = ['x']
+      var arrayXValues = this.props.dataToGraph.map(function(obj){
+        return obj[key1];
+      });
+
+      xValues =  xValues.concat(arrayXValues);
 
 
-    var yValues =[key2];
-    var arrayYValues = this.props.dataToGraph.map(function(obj){
-      return obj[key2];
-    });
+      var key2 = Object.keys(this.props.dataToGraph[0])[1]
 
-    yValues =  yValues.concat(arrayYValues);
+      var yValues =[key2];
+      var arrayYValues = this.props.dataToGraph.map(function(obj){
+        return obj[key2];
+      });
 
-    var key1 = Object.keys(this.props.dataToGraph[0])[0]
-    var xValues = ['x']
-    var arrayXValues = this.props.dataToGraph.map(function(obj){
-      return obj[key1];
-    });
+      yValues =  yValues.concat(arrayYValues);
 
-    xValues =  xValues.concat(arrayXValues);
+      c3.generate({
+        bindto: '#chart2',
+        data: {
+          x: 'x',
+          columns: [
+            xValues,
+            yValues
 
-    c3.generate({
-      bindto: '#chart2',
-      data: {
-        x: 'x',
-        columns: [
-          xValues,
-          yValues
-
-        ]
-      }
-    });
+          ]
+        }
+      });
+    }
   }
 
 
-
   render() {
-    console.log(this.state.xAxis);
+
 
     if (!this.state.xAxis){
       return(

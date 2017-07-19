@@ -20,7 +20,6 @@ class PieDonutCategoryDropdown extends React.Component {
     }
 
 
-
     return (
       <div>
         <section className="category-selector">
