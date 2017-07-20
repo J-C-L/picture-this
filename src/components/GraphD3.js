@@ -27,11 +27,14 @@ class GraphD3 extends Component {
         .style("width", function(d) { return d * 10 + "px"; })
         .text(function(d) { return d; });
   }
+
+  
   render() {
       return (
         <div>
-          <div id="chart"></div>
-        </div>)
+          <div id="chart"> D3 Chart Will Go Here</div>
+        </div>
+      )
     }
   }
 
