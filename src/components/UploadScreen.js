@@ -38,7 +38,7 @@ class UploadScreen extends Component {
     var dropArea;
     if (this.state.fileName){
       dropArea = (
-        <section>
+        <section className="dropArea">
           <Dropzone onDrop={(files) => this.onDrop(files)}>
             <div>Drag your data file here, or click to select file to upload.</div>
           </Dropzone>

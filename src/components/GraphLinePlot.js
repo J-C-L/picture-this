@@ -48,20 +48,26 @@ class GraphLinePlot extends Component {
       });
       yValues =  yValues.concat(arrayYValues);
 
+      var yValues2 = yValues.map(function(val){
+        return (2*val + 50)
+      });
+
+
       c3.generate({
         bindto: '#chart2',
         data: {
           x: 'x',
           columns: [
             xValues,
-            yValues
+            yValues,
+            yValues2
           ]
         },
-        //Want to normaliza scale based on xy-values
-        size: {
-          width: 400,
-          height: 400
-        }
+        //Wnpm install --save react-c3jsant to normaliza scale based on xy-values
+        // size: {
+        //   width: 400,
+        //   height: 400
+        // }
       });
 
       console.log(this.state.xAxis);
@@ -73,8 +79,6 @@ class GraphLinePlot extends Component {
 
 
   render() {
-
-
 
     if (!this.state.xAxis){
       return(

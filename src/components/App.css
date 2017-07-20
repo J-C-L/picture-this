@@ -1,4 +1,13 @@
 
+.Upload{
+    margin-left: 5px;
+    width: 30%;
+}
+
+/*Dropzone{
+  margin-bottom: 100px;
+}*/
+
 .Select-clear-zone{
   visibility: hidden;
 }

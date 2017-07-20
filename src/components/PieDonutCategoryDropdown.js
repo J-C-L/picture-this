@@ -23,7 +23,7 @@ class PieDonutCategoryDropdown extends React.Component {
     return (
       <div>
         <section className="category-selector">
-          <h2 className="heading"> Which category would you like to see graphed?</h2>
+          <h3 className="heading"> Which category would you like to see graphed?</h3>
           <Select
             name="Category"
             value={this.props.category}
