@@ -27,6 +27,7 @@ class PieDonutCategoryDropdown extends React.Component {
           <Select
             name="Category"
             value={this.props.category}
+            placeholder="category..."
             options={chartOptions}
             onChange={val => this.props.onCategorySelect(val.value)}
             />

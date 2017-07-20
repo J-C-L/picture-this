@@ -14,6 +14,7 @@ import Papa from 'papaparse';
 class GraphLinePlot extends Component {
   constructor(){
     super();
+    this.createYColums = this.createYColums.bind(this);
     this.state={
       xAxis: null,
       yAxis: null,
@@ -26,6 +27,25 @@ class GraphLinePlot extends Component {
   componentDidUpdate() {
     this.updateChart();
   }
+
+
+  createYColums(yAxis){
+
+    var yColumns = [];
+
+    for(var i=0; i<yAxis.length; i++){
+      var key = yAxis[i]['value'];
+      var yValues = [key];
+      var arrayYValues = this.props.dataToGraph.map(function(obj){
+        return obj[key];
+      });
+      yValues =  yValues.concat(arrayYValues);
+      yColumns.push(yValues);
+      }
+      return yColumns;
+
+  }
+
 
   updateChart() {
 
@@ -40,28 +60,15 @@ class GraphLinePlot extends Component {
       });
       xValues =  xValues.concat(arrayXValues);
 
-      var key2 = this.state.yAxis;
-      // var key2 = Object.keys(this.props.dataToGraph[0])[1]
-      var yValues =[key2];
-      var arrayYValues = this.props.dataToGraph.map(function(obj){
-        return obj[key2];
-      });
-      yValues =  yValues.concat(arrayYValues);
 
-      var yValues2 = yValues.map(function(val){
-        return (2*val + 50)
-      });
+      var allColumns = [xValues].concat(this.createYColums(this.state.yAxis));
 
 
       c3.generate({
         bindto: '#chart2',
         data: {
           x: 'x',
-          columns: [
-            xValues,
-            yValues,
-            yValues2
-          ]
+          columns: allColumns
         },
         //Wnpm install --save react-c3jsant to normaliza scale based on xy-values
         // size: {
@@ -89,7 +96,7 @@ class GraphLinePlot extends Component {
             xAxis={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
 
           <YAxisSelector
-            yAxis={this.state.yAxis} dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
+             dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
         </div>
       )
     }else{
@@ -100,7 +107,7 @@ class GraphLinePlot extends Component {
             xAxis={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
 
           <YAxisSelector
-            yAxis={this.state.yAxis} dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
+           dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
 
           <h2 className="chart-title">
             File Being Graphed: {this.props.name} </h2>

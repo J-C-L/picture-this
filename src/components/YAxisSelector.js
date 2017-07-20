@@ -14,6 +14,7 @@ class YAxisSelector extends React.Component {
   handleSelectChange (value) {
   		console.log('You\'ve selected:', value);
   		this.setState({ value });
+      this.props.onYAxisSelect(value)
     }
   render() {
 
@@ -28,11 +29,11 @@ class YAxisSelector extends React.Component {
     return (
       <div className="xyAxisSelector">
         <section className="x-axis-selector">
-          <h4 className="heading"> Which category would you like to use for your y-axis?</h4>
+          <h4 className="heading"> Which field(s) would you like to graph?</h4>
           <Select
             name="Y-Axis"
             value={this.state.value}
-            placeholder="Select fields to graph"
+            placeholder="y-axis data..."
             options={chartOptions}
             multi={true}
             joinValues={true}

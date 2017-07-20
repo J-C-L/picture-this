@@ -24,10 +24,11 @@ class XAxisSelector extends React.Component {
     return (
       <div className="xyAxisSelector">
         <section className="x-axis-selector">
-          <h4 className="heading"> Which category would you like to use for your x-axis?</h4>
+          <h4 className="heading"> Which field would you like to use for your x-axis?</h4>
           <Select
             name="X-Axis"
             value={this.props.xAxis}
+            placeholder="x-axis data..."
             options={chartOptions}
             onChange={val => this.props.onXAxisSelect(val.value)}
             />
