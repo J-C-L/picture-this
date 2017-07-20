@@ -70,10 +70,7 @@ class GraphLinePlot extends Component {
         // }
       });
 
-      console.log(this.state.xAxis);
-      console.log(this.state.yAxis);
-      console.log(xValues);
-      console.log(yValues);
+
     }
   }
 

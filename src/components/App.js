@@ -35,11 +35,11 @@ class App extends React.Component {
 
 
   renderChart(dataToGraph, chartType, name){
-    if (dataToGraph && (chartType=='Pie'|| chartType=='Donut')){
+    if (dataToGraph && (chartType==='Pie'|| chartType==='Donut')){
       return (
         <GraphPieDonut dataToGraph={dataToGraph} name={name} chartType={chartType} />
       )
-    }else if(dataToGraph && chartType=='Line'){
+    }else if(dataToGraph && chartType==='Line'){
       return(
         <GraphLinePlot dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
       )
@@ -54,8 +54,6 @@ class App extends React.Component {
         <h3 className='main-title'> An easy, fun way to make your data come to life... </h3>
 
         <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
-
-        {console.log(this.state.dataToGraph)}
 
         <ChartTypeDropdown chartType={this.state.chartType}
           onChartSelect={chartType => this.setState({chartType})}/>
