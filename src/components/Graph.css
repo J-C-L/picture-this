@@ -3,3 +3,22 @@
   color: blue;
   text-align: center;
 }
+
+
+.xyAxisSelector .heading, .category-selector .heading {
+  margin-bottom: 3px;
+}
+
+.xyAxisSelector, .category-selector{
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
+.category-selector{
+  max-width: 30%;
+}
+
+.xyAxisSelector{
+  max-width: 30%;
+  display: inline-block;
+}

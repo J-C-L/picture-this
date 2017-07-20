@@ -1,4 +1,13 @@
 
+.Upload{
+    margin-left: 5px;
+    width: 30%;
+}
+
+/*Dropzone{
+  margin-bottom: 100px;
+}*/
+
 .Select-clear-zone{
   visibility: hidden;
 }
@@ -6,8 +15,13 @@
 .chart-type-selector .heading {
   margin-bottom: 3px;
 }
+
 .chart-type-selector{
   margin-left: 5px;
+}
+
+.chart-type-selector .Select{
+  max-width: 15%;
 }
 
 h1.main-title {
@@ -44,9 +58,6 @@ body::after {
   z-index: -1;
 }
 
-.Select{
-  max-width: 15%;
-}
 
 
 /*.App {

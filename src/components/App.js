@@ -1,38 +1,53 @@
 import React from 'react';
 import './App.css';
-// import dailyShowData from '../assets/DailyShow.json';
-import Graph from './Graph';
 import GraphD3 from './GraphD3';
+import GraphPieDonut from './GraphPieDonut';
+import GraphLinePlot from './GraphLinePlot';
 import UploadScreen from './UploadScreen';
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
+import ChartTypeDropdown from './ChartTypeDropdown';
+
 
 
 class App extends React.Component {
 
   constructor(){
     super();
-  }
-  componentWillMount(){
-    this.setState({
+    this.state={
       dataToGraph: null,
       fileName: "",
       chartType: null
-    })
+    };
   }
+
+  // componentWillMount(){
+  //   this.setState({
+  //     dataToGraph: null,
+  //     fileName: "",
+  //     chartType: null
+  //   })
+  // }
 
   onFileUpload(dataToGraph, fileName){
     this.setState({dataToGraph});
     this.setState({fileName});
+    this.setState({chartType: null});
+  }
+
+
+  renderChart(dataToGraph, chartType, name){
+    if (dataToGraph && (chartType==='Pie'|| chartType==='Donut')){
+      return (
+        <GraphPieDonut dataToGraph={dataToGraph} name={name} chartType={chartType} />
+      )
+    }else if(dataToGraph && chartType==='Line'){
+      return(
+        <GraphLinePlot dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
+      )
+    }
   }
 
 
   render() {
-    var chartOptions = [
-      { value: "pie", label: "Pie Chart"},
-      { value: "donut", label: "Donut Chart"},
-    ];
-
     return (
       <div>
         <h1 className='main-title'> PICTURE IT! </h1>
@@ -40,19 +55,14 @@ class App extends React.Component {
 
         <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 
-        <section className="chart-type-selector">
-          <h3 className="heading"> Chart Type:</h3>
-          <Select
-            name="Chart-Type"
-            value={this.state.chartType}
-            options={chartOptions}
-            onChange={val => this.setState({chartType:val.value })}
-            />
-        </section>
+        <ChartTypeDropdown chartType={this.state.chartType}
+          onChartSelect={chartType => this.setState({chartType})}/>
 
         <GraphD3 />
-        
-        <Graph dataToGraph={this.state.dataToGraph} name={this.state.fileName} chartType={this.state.chartType} />
+
+        {this.renderChart(this.state.dataToGraph, this.state.chartType, this.state.fileName)}
+
+
       </div>
     );
   }

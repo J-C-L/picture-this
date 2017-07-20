@@ -12,6 +12,7 @@ class UploadScreen extends Component {
     }
   }
 
+
   onDrop(acceptedFiles, rejectedFile) {
     var reader = new FileReader();
 
@@ -19,15 +20,13 @@ class UploadScreen extends Component {
       var dataAsJSON = Papa.parse(event.target.result, {
         header: true,
       })
-      // this.props.onSubmit({
-      //   fileName: acceptedFiles[0].name,
-      //   parsedData: dataAsJSON,
-      // })
+
       this.setState({
         fileName: acceptedFiles[0].name,
         parsedData: dataAsJSON,
       })
       this.props.onFileUpload(this.state.parsedData.data, this.state.fileName);
+      
     }
 
     reader.readAsText(acceptedFiles[0])
@@ -39,7 +38,7 @@ class UploadScreen extends Component {
     var dropArea;
     if (this.state.fileName){
       dropArea = (
-        <section>
+        <section className="dropArea">
           <Dropzone onDrop={(files) => this.onDrop(files)}>
             <div>Drag your data file here, or click to select file to upload.</div>
           </Dropzone>
