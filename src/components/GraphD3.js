@@ -5,9 +5,6 @@ import {groupBy, reduce} from 'lodash';
 import d3 from 'd3';
 
 
-
-
-
 class GraphD3 extends Component {
 
   componentDidMount() {
@@ -17,18 +14,18 @@ class GraphD3 extends Component {
     this.updateChart();
   }
   updateChart() {
-    var data = [4, 8, 15, 16, 23, 42];
+    // var data = [4, 8, 15, 16, 23, 42];
 
-    d3.select("#chart")
-      .selectAll("div")
-        .data(data)
-      .enter().append("div")
-        .attr("class", "bar")
-        .style("width", function(d) { return d * 10 + "px"; })
-        .text(function(d) { return d; });
-  }
+  //   d3.select("#chart")
+  //     .selectAll("div")
+  //       .data(data)
+  //     .enter().append("div")
+  //       .attr("class", "bar")
+  //       .style("width", function(d) { return d * 10 + "px"; })
+  //       .text(function(d) { return d; });
+  return
+   }
 
-  
   render() {
       return (
         <div>

@@ -63,7 +63,8 @@ class GraphLinePlot extends Component {
 
       var allColumns = [xValues].concat(this.createYColums(this.state.yAxis));
 
-
+      if(this.state.error) return
+      try {
       c3.generate({
         bindto: '#chart2',
         data: {
@@ -76,7 +77,9 @@ class GraphLinePlot extends Component {
         //   height: 400
         // }
       });
-
+    } catch (error) {
+      this.setState({error: "This type of graph cannot rendered with that data."})
+    }
 
     }
   }
@@ -112,6 +115,9 @@ class GraphLinePlot extends Component {
           <h2 className="chart-title">
             File Being Graphed: {this.props.name} </h2>
           <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
+          {this.state.error && (
+            <h4>{this.state.error}</h4>
+          )}
           <div id="chart2"></div>
         </div>
       );
