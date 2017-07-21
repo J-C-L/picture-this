@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {groupBy, reduce} from 'lodash';
-// import accessToElectricityData from '../assets/WorldBank-AccessToElectricity.csv';
 //_ is a common symbol for lodash, so could use
 // import _ from 'lodash';
 import testDataXY from '../assets/Test-Data-xy.csv';
@@ -78,7 +77,7 @@ class GraphLinePlot extends Component {
         // }
       });
     } catch (error) {
-      this.setState({error: "This type of graph cannot rendered with that data."})
+      this.setState({error: "We're sorry. This type of graph cannot be rendered with that data."})
     }
 
     }
@@ -116,7 +115,7 @@ class GraphLinePlot extends Component {
             File Being Graphed: {this.props.name} </h2>
           <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
           {this.state.error && (
-            <h4>{this.state.error}</h4>
+          <h2 className="error-message">{this.state.error}</h2>
           )}
           <div id="chart2"></div>
         </div>
