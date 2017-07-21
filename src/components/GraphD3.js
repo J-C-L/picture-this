@@ -15,6 +15,19 @@ class GraphD3 extends Component {
   }
   updateChart() {
     // var data = [4, 8, 15, 16, 23, 42];
+<<<<<<< HEAD
+=======
+    //
+    // d3.select("#chart")
+    //   .selectAll("div")
+    //     .data(data)
+    //   .enter().append("div")
+    //     .attr("class", "bar")
+    //     .style("width", function(d) { return d * 10 + "px"; })
+    //     .text(function(d) { return d; });
+    return
+  }
+>>>>>>> master
 
   //   d3.select("#chart")
   //     .selectAll("div")
