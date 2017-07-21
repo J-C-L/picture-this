@@ -58,9 +58,9 @@ class App extends React.Component {
         <ChartTypeDropdown chartType={this.state.chartType}
           onChartSelect={chartType => this.setState({chartType})}/>
 
-        <GraphD3 />
-
         {this.renderChart(this.state.dataToGraph, this.state.chartType, this.state.fileName)}
+
+        <GraphD3 />
 
 
       </div>
