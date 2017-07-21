@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// import dailyShowData from '../assets/DailyShow.json';
 import GraphPieDonut from './GraphPieDonut';
 import GraphLinePlot from './GraphLinePlot';
 import UploadScreen from './UploadScreen';
@@ -19,13 +18,6 @@ class App extends React.Component {
     };
   }
 
-  // componentWillMount(){
-  //   this.setState({
-  //     dataToGraph: null,
-  //     fileName: "",
-  //     chartType: null
-  //   })
-  // }
 
   onFileUpload(dataToGraph, fileName){
     this.setState({dataToGraph});
