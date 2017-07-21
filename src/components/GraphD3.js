@@ -16,7 +16,7 @@ class GraphD3 extends Component {
   updateChart() {
     // var data = [4, 8, 15, 16, 23, 42];
 
-  //   d3.select("#chart")
+  //   d3.select("#chartD3")
   //     .selectAll("div")
   //       .data(data)
   //     .enter().append("div")
@@ -29,7 +29,7 @@ class GraphD3 extends Component {
   render() {
       return (
         <div>
-          <div id="chart"> D3 Chart Will Go Here</div>
+          <div id="chartD3"> D3 Chart Will Go Here</div>
         </div>
       )
     }
