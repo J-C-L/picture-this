@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import GraphD3 from './GraphD3';
 import GraphPieDonut from './GraphPieDonut';
 import GraphLinePlot from './GraphLinePlot';
 import UploadScreen from './UploadScreen';
@@ -19,13 +18,6 @@ class App extends React.Component {
     };
   }
 
-  // componentWillMount(){
-  //   this.setState({
-  //     dataToGraph: null,
-  //     fileName: "",
-  //     chartType: null
-  //   })
-  // }
 
   onFileUpload(dataToGraph, fileName){
     this.setState({dataToGraph});
@@ -59,9 +51,6 @@ class App extends React.Component {
           onChartSelect={chartType => this.setState({chartType})}/>
 
         {this.renderChart(this.state.dataToGraph, this.state.chartType, this.state.fileName)}
-
-        <GraphD3 />
-
 
       </div>
     );
