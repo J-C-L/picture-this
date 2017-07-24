@@ -60,12 +60,17 @@ class GraphBar extends Component {
         ],
         type: this.props.chartType.toLowerCase(),
         labels: true,
-        order: 'desc',
       },
 
       axis: {
         x: {
           type: 'category' // this needed to load string x value
+        },
+        y:{
+        label: {
+            text: 'Totals',
+            position: 'outer-middle'
+          }
         }
       },
     });
