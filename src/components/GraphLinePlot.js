@@ -88,7 +88,9 @@ class GraphLinePlot extends Component {
             hide: true
           },
           zoom: {
-            enabled: true
+            enabled: true,
+            // rescale: true
+            extent: [1, 100] //default is [1, 10]
           }
 
           //Wnpm install --save react-c3jsant to normaliza scale based on xy-values

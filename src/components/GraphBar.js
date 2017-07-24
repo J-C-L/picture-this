@@ -50,67 +50,89 @@ class GraphBar extends Component {
     console.log(categories);
     console.log(data);
 
-    c3.generate({
-      bindto: '#chart',
-      data: {
-        x: 'x',
-        columns: [
-          categories,
-          data,
-        ],
-        type: this.props.chartType.toLowerCase(),
-        labels: true,
-      },
-
-      axis: {
-        x: {
-          type: 'category' // this needed to load string x value
-        },
-        y:{
-        label: {
-            text: 'Totals',
-            position: 'outer-middle'
-          }
-        }
-      },
-    });
-
     // c3.generate({
     //   bindto: '#chart',
     //   data: {
-    //     columns: categoryLengths,
+    //     x: 'x',
+    //     columns: [
+    //       categories,
+    //       data,
+    //     ],
     //     type: this.props.chartType.toLowerCase(),
-    //     labels: true
-    //   }
-    // });
+    //     labels: true,
+    //   },
+    //
+    //   axis: {
+    //     x: {
+    //       type: 'category' // this needed to load string x value
+    //     },
+    //     y:{
+    //       label: {
+    //         text: 'Totals',
+    //         position: 'outer-middle'
+    //       }
+    //     }
+    //   },
+    //   // bar: {
+    //   //   width: {
+    //   //     ratio: 0.8 // this makes bar width 80% of length between ticks. Default is 0.6
+    //   //   }
+    //   // }
+    //   });
 
 
 
-  }
+      c3.generate({
+        bindto: '#chart',
+        data: {
 
-  render() {
+          x: 'x',
+            columns:
+            [['x', this.state.category]].concat(categoryLengths)  ,
+          // columns: categoryLengths,
+          type: this.props.chartType.toLowerCase(),
+          labels: true
+        },
+        axis: {
+            x: {
+              type: 'category' // this needed to load string x value
+            },
+            y:{
+              label: {
+                text: 'Totals',
+                position: 'outer-middle'
+              }
+            }
+          }
+      });
 
-    if (!this.state.category){
-      return (
-        <DataCategoryDropdown
-          category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
-      )
-    }else{
-      return (
-        <div>
 
+
+    }
+
+    render() {
+
+      if (!this.state.category){
+        return (
           <DataCategoryDropdown
             category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
+        )
+      }else{
+        return (
+          <div>
 
-          <h2 className="chart-title">
-            File Being Graphed: {this.props.name} </h2>
-          <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
-          <h4 className="chart-title"> Category shown: {this.state.category} </h4>
-          <div id="chart"></div>
-        </div>
-      )
+            <DataCategoryDropdown
+              category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
+
+            <h2 className="chart-title">
+              File Being Graphed: {this.props.name} </h2>
+            <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
+            <h4 className="chart-title"> Category shown: {this.state.category} </h4>
+            <div id="chart"></div>
+          </div>
+        )
+      }
     }
   }
-}
 
-export default GraphBar;
+  export default GraphBar;
