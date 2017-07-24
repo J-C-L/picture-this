@@ -72,21 +72,23 @@ class GraphLinePlot extends Component {
           },
           axis:{
             x: {
-            label: {
+              label: {
                 text: this.state.xAxis,
                 position: 'outer-center'
               }
             },
             y:{
-            label: {
+              label: {
                 text: 'Totals',
                 position: 'outer-middle'
               }
             }
           },
-
           legend:{
             hide: true
+          },
+          zoom: {
+            enabled: true
           }
 
           //Wnpm install --save react-c3jsant to normaliza scale based on xy-values
