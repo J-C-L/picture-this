@@ -27,7 +27,7 @@ class App extends React.Component {
 
 
   renderChart(dataToGraph, chartType, name){
-    if (dataToGraph && (chartType==='Pie'|| chartType==='Donut')){
+    if (dataToGraph && (chartType==='Pie'|| chartType==='Donut' || chartType==='Bar')){
       return (
         <GraphPieDonut dataToGraph={dataToGraph} name={name} chartType={chartType} />
       )
