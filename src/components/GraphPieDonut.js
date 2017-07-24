@@ -4,7 +4,7 @@ import {groupBy, reduce} from 'lodash';
 // import _ from 'lodash';
 import c3 from 'c3'
 import './Graph.css';
-import PieDonutCategoryDropdown from './PieDonutCategoryDropdown';
+import DataCategoryDropdown from './DataCategoryDropdown';
 
 
 
@@ -47,14 +47,14 @@ class GraphPieDonut extends Component {
 
     if (!this.state.category){
       return (
-        <PieDonutCategoryDropdown
+        <DataCategoryDropdown
           category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
       )
     }else{
       return (
         <div>
 
-          <PieDonutCategoryDropdown
+          <DataCategoryDropdown
             category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
 
           <h2 className="chart-title">
