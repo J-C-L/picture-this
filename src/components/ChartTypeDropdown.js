@@ -13,8 +13,8 @@ class ChartTypeDropdown extends React.Component {
     var chartOptions = [
       { value: "Pie", label: "Pie Chart"},
       { value: "Donut", label: "Donut Chart"},
-      { value: "Line", label: "Line Plot"},
       { value: "Bar", label: "Bar Chart"},
+      { value: "Line", label: "Line Plot"},
     ];
 
       return (

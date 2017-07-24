@@ -40,8 +40,8 @@ class GraphLinePlot extends Component {
       });
       yValues =  yValues.concat(arrayYValues);
       yColumns.push(yValues);
-      }
-      return yColumns;
+    }
+    return yColumns;
 
   }
 
@@ -64,21 +64,40 @@ class GraphLinePlot extends Component {
 
       if(this.state.error) return
       try {
-      c3.generate({
-        bindto: '#chart2',
-        data: {
-          x: 'x',
-          columns: allColumns
-        },
-        //Wnpm install --save react-c3jsant to normaliza scale based on xy-values
-        // size: {
-        //   width: 400,
-        //   height: 400
-        // }
-      });
-    } catch (error) {
-      this.setState({error: "We're sorry. This type of graph cannot be rendered with that data."})
-    }
+        c3.generate({
+          bindto: '#chart2',
+          data: {
+            x: 'x',
+            columns: allColumns
+          },
+          axis:{
+            x: {
+            label: {
+                text: this.state.xAxis,
+                position: 'outer-center'
+              }
+            },
+            y:{
+            label: {
+                text: 'Totals',
+                position: 'outer-middle'
+              }
+            }
+          },
+
+          legend:{
+            hide: true
+          }
+
+          //Wnpm install --save react-c3jsant to normaliza scale based on xy-values
+          // size: {
+          //   width: 400,
+          //   height: 400
+          // }
+        });
+      } catch (error) {
+        this.setState({error: "We're sorry. This type of graph cannot be rendered with that data."})
+      }
 
     }
   }
@@ -98,7 +117,7 @@ class GraphLinePlot extends Component {
             xAxis={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
 
           <YAxisSelector
-             dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
+            dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
         </div>
       )
     }else{
@@ -109,13 +128,13 @@ class GraphLinePlot extends Component {
             xAxis={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
 
           <YAxisSelector
-           dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
+            dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
 
           <h2 className="chart-title">
             File Being Graphed: {this.props.name} </h2>
           <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
           {this.state.error && (
-          <h2 className="error-message">{this.state.error}</h2>
+            <h2 className="error-message">{this.state.error}</h2>
           )}
           <div id="chart2"></div>
         </div>

@@ -23,25 +23,63 @@ class GraphBar extends Component {
   componentDidUpdate() {
     this.updateChart();
   }
+
   updateChart() {
     const groupedData = groupBy(this.props.dataToGraph, this.state.category);
 
-    console.log(groupedData);
-    return;
-    // const columns = reduce(groupedData, (result, value, key) =>
-    // {
-    //   result.push([key, value.length]);
-    //   return result;
-    // }, []);
 
+    const categoryLengths = reduce(groupedData, (result, value, key) =>
+    {
+      result.push([key, value.length]);
+      return result;
+    }, []);
+
+    console.log(categoryLengths);
+
+    const categories =['x'];
+    for (var i=0; i<categoryLengths.length; i++){
+      categories.push(categoryLengths[i][0]);
+    }
+
+    const data=[this.state.category];
+    for (var i=0; i<categoryLengths.length; i++){
+      data.push(categoryLengths[i][1]);
+    }
+
+    console.log(categoryLengths);
+    console.log(categories);
+    console.log(data);
+
+    c3.generate({
+      bindto: '#chart',
+      data: {
+        x: 'x',
+        columns: [
+          categories,
+          data,
+        ],
+        type: this.props.chartType.toLowerCase(),
+        labels: true,
+        order: 'desc',
+      },
+
+      axis: {
+        x: {
+          type: 'category' // this needed to load string x value
+        }
+      },
+    });
 
     // c3.generate({
     //   bindto: '#chart',
     //   data: {
-    //     columns: columns,
-    //     type: this.props.chartType.toLowerCase()
+    //     columns: categoryLengths,
+    //     type: this.props.chartType.toLowerCase(),
+    //     labels: true
     //   }
     // });
+
+
 
   }
 
@@ -63,7 +101,7 @@ class GraphBar extends Component {
             File Being Graphed: {this.props.name} </h2>
           <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
           <h4 className="chart-title"> Category shown: {this.state.category} </h4>
-          <div id="chart">  BAR CHART WILL GO HERE     </div>
+          <div id="chart"></div>
         </div>
       )
     }
