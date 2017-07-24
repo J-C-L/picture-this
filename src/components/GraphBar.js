@@ -8,7 +8,7 @@ import PieDonutCategoryDropdown from './PieDonutCategoryDropdown';
 
 
 
-class GraphPieDonut extends Component {
+class GraphBar extends Component {
   constructor(){
     super();
     this.state={
@@ -26,21 +26,23 @@ class GraphPieDonut extends Component {
   updateChart() {
     const groupedData = groupBy(this.props.dataToGraph, this.state.category);
 
+    console.log(groupedData);
+    return;
+    // const columns = reduce(groupedData, (result, value, key) =>
+    // {
+    //   result.push([key, value.length]);
+    //   return result;
+    // }, []);
 
-    const columns = reduce(groupedData, (result, value, key) =>
-    {
-      result.push([key, value.length]);
-      return result;
-    }, []);
 
+    // c3.generate({
+    //   bindto: '#chart',
+    //   data: {
+    //     columns: columns,
+    //     type: this.props.chartType.toLowerCase()
+    //   }
+    // });
 
-    c3.generate({
-      bindto: '#chart',
-      data: {
-        columns: columns,
-        type: this.props.chartType.toLowerCase()
-      }
-    });
   }
 
   render() {
@@ -61,11 +63,11 @@ class GraphPieDonut extends Component {
             File Being Graphed: {this.props.name} </h2>
           <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
           <h4 className="chart-title"> Category shown: {this.state.category} </h4>
-          <div id="chart"></div>
+          <div id="chart">  BAR CHART WILL GO HERE     </div>
         </div>
       )
     }
   }
 }
 
-export default GraphPieDonut;
+export default GraphBar;

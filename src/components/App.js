@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import GraphPieDonut from './GraphPieDonut';
+import GraphBar from './GraphBar';
 import GraphLinePlot from './GraphLinePlot';
 import UploadScreen from './UploadScreen';
 import ChartTypeDropdown from './ChartTypeDropdown';
@@ -27,9 +28,13 @@ class App extends React.Component {
 
 
   renderChart(dataToGraph, chartType, name){
-    if (dataToGraph && (chartType==='Pie'|| chartType==='Donut' || chartType==='Bar')){
+    if (dataToGraph && (chartType==='Pie'|| chartType==='Donut')){
       return (
         <GraphPieDonut dataToGraph={dataToGraph} name={name} chartType={chartType} />
+      )
+    }else if(dataToGraph && chartType==='Bar'){
+      return (
+        <GraphBar dataToGraph={dataToGraph} name={name} chartType={chartType} />
       )
     }else if(dataToGraph && chartType==='Line'){
       return(
