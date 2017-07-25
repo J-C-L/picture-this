@@ -45,8 +45,29 @@ class GraphChoropleth extends Component {
         // console.log(colorDomainArray);
 
 
-        console.log(USstatesJSON);
+        // Loop through each state data value in the .csv file
+		for (var i = 0; i < data.length; i++) {
 
+			// Grab State Name
+			var dataState = data[i].state;
+
+			// Grab data value
+			var dataValue = data[i].visited;
+
+
+      // Find the corresponding state inside the GeoJSON
+      			for (var j = 0; j < USstatesJSON.features.length; j++)  {
+      				var jsonState = USstatesJSON.features[j].properties.NAME;
+
+      				if (dataState == jsonState) {
+
+      					// Copy the data value into the JSON
+      					USstatesJSON.features[j].properties.visited = dataValue;
+      					// Stop looking through the JSON
+      					break;
+      				} // end of if statement
+      			} //end of loop through GeoJSON
+      		} // end of loop through my states data
 
 
     });
