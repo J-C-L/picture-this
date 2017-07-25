@@ -5,7 +5,7 @@ import {groupBy, reduce} from 'lodash';
 import d3 from 'd3';
 
 
-class GraphD3 extends Component {
+class GraphChoropleth extends Component {
 
   componentDidMount() {
     this.updateChart();
@@ -16,7 +16,7 @@ class GraphD3 extends Component {
   updateChart() {
     // var data = [4, 8, 15, 16, 23, 42];
     //
-    // d3.select("#chart")
+    // d3.select("#chart-choropleth")
     //   .selectAll("div")
     //     .data(data)
     //   .enter().append("div")
@@ -30,10 +30,10 @@ class GraphD3 extends Component {
   render() {
       return (
         <div>
-          <div id="chart"> D3 Chart Will Go Here</div>
+          <div id="chart-choropleth"> Choropleth Chart Will Go Here</div>
         </div>
       )
     }
   }
 
-  export default GraphD3;
+  export default GraphChoropleth;
