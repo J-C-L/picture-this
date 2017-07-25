@@ -28,23 +28,6 @@ class App extends React.Component {
   }
 
 
-  // renderChart(dataToGraph, chartType, name){
-  //   if (dataToGraph && (chartType==='Pie'|| chartType==='Donut')){
-  //     return (
-  //       <GraphPieDonut dataToGraph={dataToGraph} name={name} chartType={chartType} />
-  //     )
-  //   }else if(dataToGraph && chartType==='Bar'){
-  //     return (
-  //       <GraphBar dataToGraph={dataToGraph} name={name} chartType={chartType} />
-  //     )
-  //   }else if(dataToGraph && chartType==='Line'){
-  //     return(
-  //       <GraphLinePlot dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
-  //     )
-  //   }
-  // }
-
-
   renderChart(dataToGraph, chartType, name){
     if (dataToGraph && (chartType==='Pie'|| chartType==='Donut')){
       return (
@@ -58,19 +41,13 @@ class App extends React.Component {
       return(
         <GraphLinePlot dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
       )
-    }else if(dataToGraph && chartType==='Choropleth'){
+    }else if(chartType==='Choropleth'){
+    // }else if(dataToGraph && chartType==='Choropleth'){
         return(
           <GraphChoropleth dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
         )
+    }
   }
-  }
-
-
-
-
-
-
-
 
 
   render() {
