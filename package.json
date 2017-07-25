@@ -8,6 +8,7 @@
     "csvjson": "^4.3.3",
     "csvtojson": "^1.1.7",
     "d3": "^4.10.0",
+    "d3-geo": "^1.6.4",
     "lodash": "^4.17.4",
     "material-ui": "^0.18.6",
     "papaparse": "^4.3.3",
@@ -17,7 +18,8 @@
     "react-scripts": "1.0.10",
     "react-select": "^1.0.0-rc.5",
     "react-simple-file-input": "^1.0.0",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-tap-event-plugin": "^2.0.1",
+    "topojson": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

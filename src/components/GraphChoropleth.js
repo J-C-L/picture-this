@@ -3,6 +3,8 @@ import {groupBy, reduce} from 'lodash';
 //_ is a common symbol for lodash, so could use
 // import _ from 'lodash';
 import * as d3 from 'd3';
+// import topojson from 'topojson';
+// import * as geo from 'd3-geo';
 import './Graph.css';
 import USstatesJSON from '../assets/us-states.json';
 import populationCSV from '../assets/USPopByState.csv';
@@ -40,7 +42,7 @@ class GraphChoropleth extends Component {
       }
 
       // Define linear scale for output
-      var color = d3.scale.linear()
+      var color = d3.scaleLinear()
       .range(['rgb(237,248,251)','rgb(191,211,230)','rgb(158,188,218)','rgb(140,150,198)','rgb(136,86,167)','rgb(129,15,124)'])
       .domain(colorDomainArray); // giving the input data values
 
@@ -71,51 +73,6 @@ class GraphChoropleth extends Component {
       			} //end of loop through GeoJSON
       		} // end of loop through my states data
 
-          //PREPARE FOR USING D3
-
-          //Width and height of map
-          var width = 960;
-          var height = 500;
-
-          // D3 Projection of the US
-          var projection = d3.geo.albersUsa()
-          .translate([width/2, height/2])    // translate to center of screen
-          .scale([1000]);          // scale things down so see entire US
-
-          // Define path generator
-          var path = d3.geo.path()  // path generator that will convert GeoJSON to SVG paths
-          .projection(projection);  // tell path generator to use albersUsa projection
-
-
-
-
-
-
-          // Bind the data to the SVG and create one path per GeoJSON feature
-        		svg.selectAll("path")
-        		.data(json.features)
-        		.enter()
-        		.append("path")
-        		.attr("d", path)
-        		.style("stroke", "#fff")
-        		.style("stroke-width", "1")
-        		.style("fill", function(d) {
-        			// Get data value
-        			var value = d.properties.visited;
-        			if (value) {
-        				//If value exists…
-        				return color(value);
-        			} else {
-        				//If value is undefined…
-        				return "rgb(0,0,100)";
-        			}
-        		}) // ends fill function
-
-
-
-
-
-
 
     });
 
@@ -125,6 +82,30 @@ class GraphChoropleth extends Component {
 
 
   render() {
+
+    //PREPARE FOR USING D3
+
+    //Width and height of map
+    var width = 960,
+      height = 500;
+
+    // D3 Projection of the US
+    var projection = d3.geoAlbersUsa()
+    .translate([width/2, height/2])    // translate to center of screen
+    .scale([1000]);          // scale things down so see entire US
+
+    // Define path generator
+    var path = d3.geoPath()  // path generator that will convert GeoJSON to SVG paths
+    .projection(projection);  // tell path generator to use albersUsa projection
+
+
+
+
+
+
+
+
+
     return (
       <div>
       <div id="chart-choropleth"> Choropleth Chart Will Go Here</div>
