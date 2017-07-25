@@ -15,6 +15,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-dropzone": "^3.13.3",
+    "react-faux-dom": "^4.0.3",
     "react-scripts": "1.0.10",
     "react-select": "^1.0.0-rc.5",
     "react-simple-file-input": "^1.0.0",
