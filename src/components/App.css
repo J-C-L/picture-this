@@ -41,7 +41,7 @@ h3.main-title {
 body {
   display: block;
   position: relative;
-  min-height: 675px;
+  min-height: 900px;
 }
 
 body::after {
