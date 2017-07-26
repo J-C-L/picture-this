@@ -1,28 +1,46 @@
 import React, { Component } from 'react';
 import ReactFauxDOM from 'react-faux-dom';
-import {groupBy, reduce} from 'lodash';
-//_ is a common symbol for lodash, so could use
-// import _ from 'lodash';
 import * as d3 from 'd3';
 // import topojson from 'topojson';
-// import * as geo from 'd3-geo';
 import './Graph.css';
+import DataCategoryDropdown from './DataCategoryDropdown';
 import USstatesJSON from '../assets/us-states.json';
-import populationCSV from '../assets/USPopByState.csv';
+// import populationCSV from '../assets/USPopByState.csv';
 
 
 class GraphChoropleth extends Component {
+  constructor(){
+    super();
+    this.state={
+      category: null
+    };
+  }
+
+
+
 
   render() {
+
+    // don't render map unti a data category has been chosen
+    if (!this.state.category) {
+      return (
+        <DataCategoryDropdown
+          category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
+      );
+
+    }
 
 
     var data = this.props.dataToGraph;
 
+console.log(data);
+     var categoryValue = this.state.category
+     console.log(categoryValue);
     //get array of the relevant data field
     var dataValues = data.map(function(val){
-      return parseInt(val.visited);
+      return parseInt(val[categoryValue]);
     });
-
+console.log(dataValues);
     var dataMax = Math.max.apply(null, dataValues);
     var dataMin = Math.min.apply(null, dataValues);
     var dataRange = dataMax - dataMin;
@@ -33,10 +51,10 @@ class GraphChoropleth extends Component {
       var value = dataMin + (dataRange/6)* i;
       colorDomainArray.push(value);
     }
-
-    // Define linear scale for output
+console.log(colorDomainArray);
+    // Define linear scale for color range
     var color = d3.scaleLinear()
-    .range(['rgb(237,248,251)','rgb(191,211,230)','rgb(158,188,218)','rgb(140,150,198)','rgb(136,86,167)','rgb(129,15,124)'])
+    .range(['#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#99000d'])
     .domain(colorDomainArray); // giving the input data values
 
 
@@ -47,7 +65,7 @@ class GraphChoropleth extends Component {
       var dataState = data[i].state;
 
       // Grab data value
-      var dataValue = data[i].visited;
+      var dataValue = data[i][categoryValue];
 
       // Find the corresponding state inside the GeoJSON
       for (var j = 0; j < USstatesJSON.features.length; j++)  {
@@ -56,7 +74,7 @@ class GraphChoropleth extends Component {
         if (dataState == jsonState) {
 
           // Copy the data value into the JSON
-          USstatesJSON.features[j].properties.visited = dataValue;
+          USstatesJSON.features[j].properties.categoryValue = dataValue;
           // Stop looking through the JSON
           break;
         } // end of if statement
@@ -67,8 +85,8 @@ class GraphChoropleth extends Component {
 
     //PREPARE FOR USING D3
 
-    //Width and height of map
-    var width = 960,
+    //Set width and height of map
+    var width = 1000,
     height = 500;
 
     // D3 Projection of the US
@@ -82,9 +100,9 @@ class GraphChoropleth extends Component {
 
 
 
-    // Create a parentContainer, then an SVG that state paths will be attached to,
+    // Create a parentContainer, then an SVG element that state paths will be attached to,
     // and append tooltip as a sibling of that SVG (else it doesn't work, not sure why)
-    // these are cool fake DOM nodes that ReactFauxDOM creates for me!
+    // these are fake DOM nodes that ReactFauxDOM creates
     const parentContainer = new ReactFauxDOM.createElement('div')
     const node = new ReactFauxDOM.createElement('svg')
     parentContainer.appendChild(node);
@@ -119,8 +137,9 @@ class GraphChoropleth extends Component {
     .style("stroke", "#fff")
     .style("stroke-width", "1")
     .style("fill", function(d) {
+
       // Get data value
-      var value = d.properties.visited;
+      var value = d.properties.categoryValue;
       if (value) {
         //If value exists…
         return color(value);
@@ -128,7 +147,7 @@ class GraphChoropleth extends Component {
         //If value is undefined…
         return "rgb(0,0,100)";
       }
-    }) // ends fill function
+    }) // end fill function
 
 
 
@@ -136,9 +155,9 @@ class GraphChoropleth extends Component {
     const legend = d3.select(node)
     .append("svg:g")
     .attr("class", "legend")
-    .attr("width", 240)
+    .attr("width", 300)
     .attr("height", 200)
-    .attr("transform", "translate(" + 820 + "," + 330 + ")")
+    .attr("transform", "translate(" + 820 + "," + 340 + ")")
     .selectAll("g")
     .data(color.domain().slice().reverse())
     .enter()
@@ -162,30 +181,34 @@ class GraphChoropleth extends Component {
     // var formattedLegendValues = legendValues.map(function(x){
     // 	return d3.format(".1e")(x);
     // });
+
     // Reverse array, since legened is constrcuted from top/max to bottom/min
-  var legendText = formattedLegendValues.reverse();
-  // var legendText = legendValues.reverse();
+    var legendText = formattedLegendValues.reverse();
+    // var legendText = legendValues.reverse();
 
-  //loop over indices to have access to pairs of consecutive data values to be displayed in the legned
-  var legendIndex = [0,1,2,3,4,5]
-  legend.append("text")
-  .data(legendIndex)
-  .attr("x", 24)
-  .attr("y", 12)
-  .attr("dy", ".35em")
-  .text(function(d) {
-  return legendText[d+1] + ' to ' + legendText[d]; });
-
-
+    //loop over indices to have access to pairs of consecutive data values to be displayed in the legned
+    var legendIndex = [0,1,2,3,4,5]
+    legend.append("text")
+    .data(legendIndex)
+    .attr("x", 24)
+    .attr("y", 12)
+    .attr("dy", ".35em")
+    .text(function(d) {
+      return legendText[d+1] + '  to  ' + legendText[d]; });
 
 
 
+      // return it all into React out of D3
+      return (
+        <div>
+          <DataCategoryDropdown
+            category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
 
+          {parentContainer.toReact()}
+        </div>
+      );
 
-    // return it all into React out of D3
-    return parentContainer.toReact();
-
+    }
   }
-}
 
-export default GraphChoropleth;
+  export default GraphChoropleth;
