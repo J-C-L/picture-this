@@ -100,29 +100,25 @@ console.log(colorDomainArray);
 
 
 
-    // Create a parentContainer, then an SVG element that state paths will be attached to,
-    // and append tooltip as a sibling of that SVG (else it doesn't work, not sure why)
-    // these are fake DOM nodes that ReactFauxDOM creates
+    // Create a parentContainer, then  SVG elements that state paths and the tooltip will be attached to,
+
     const parentContainer = new ReactFauxDOM.createElement('div')
     const node = new ReactFauxDOM.createElement('svg')
+    const tooltipDIV = new ReactFauxDOM.createElement('div')
     parentContainer.appendChild(node);
-    // parentContainer.appendChild(
-    //       <Tooltip
-    //         pageX={this.state.tooltipLeft}
-    //         pageY={this.state.tooltipTop}
-    //         opacity={this.state.tooltipOpacity}
-    //         data={this.state.tooltipData}
-    //         onClick={this.onTooltipClick}
-    //         key="chart-tooltip"
-    //         />
-    //
-    //     );
+    parentContainer.appendChild(tooltipDIV);
+
+    const tootlip = d3.select(tooltipDIV).append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+
+
 
     // create the map const with the correct attributes
     const d3_map = d3.select(node)
     .attr("width", width)
     .attr("height", height);
-
 
     // Create an svg element within the map which state paths will be attached to
     const states = d3_map.append("svg")
@@ -148,10 +144,28 @@ console.log(colorDomainArray);
         return "rgb(0,0,100)";
       }
     }) // end fill function
+    
+    // // 	// Modification of custom tooltip code provided by Malcolm Maclean, "D3 Tips and Tricks"
+    // 		// 	// http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html
+    // 		.on("mouseover", function(d) {
+    // 			tootlip.transition()
+    // 			.duration(200)
+    // 			.style("opacity", .9);
+    //
+    // 			tootlip.text(d.properties.NAME + ": " +
+    // 			d3.format(",.0f")(d.properties.categoryValue))
+    // 			.style("left", (d3.event.pageX) + "px")
+    // 			.style("top", (d3.event.pageY - 28) + "px");
+    // 		})
+    // 		// fade out tooltip on mouse out
+    // 		.on("mouseout", function(d) {
+    // 			tootlip.transition()
+    // 			.duration(500)
+    // 			.style("opacity", 0);
+    // 		});
 
 
-
-    // create the legend const and an svg element which it will be attached to
+    // create the legend const and a 'g' element which it will be attached to
     const legend = d3.select(node)
     .append("svg:g")
     .attr("class", "legend")
