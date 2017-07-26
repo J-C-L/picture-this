@@ -20,7 +20,6 @@ class App extends React.Component {
     };
   }
 
-
   onFileUpload(dataToGraph, fileName){
     this.setState({dataToGraph});
     this.setState({fileName});
@@ -41,8 +40,7 @@ class App extends React.Component {
       return(
         <GraphLinePlot dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
       )
-    }else if(chartType==='Choropleth'){
-    // }else if(dataToGraph && chartType==='Choropleth'){
+    }else if(dataToGraph && chartType==='Choropleth'){
         return(
           <GraphChoropleth dataToGraph={dataToGraph} name={this.state.fileName} chartType={chartType} />
         )

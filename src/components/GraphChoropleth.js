@@ -11,7 +11,6 @@ import USstatesJSON from '../assets/us-states.json';
 import populationCSV from '../assets/USPopByState.csv';
 
 
-
 class GraphChoropleth extends Component {
 
   render() {
