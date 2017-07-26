@@ -62,7 +62,7 @@ console.log(categories);
           data,
         ],
         type: this.props.chartType.toLowerCase(),
-        labels: true,
+        // labels: true,
       },
 
       axis: {
