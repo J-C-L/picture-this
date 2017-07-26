@@ -51,7 +51,7 @@ class GraphBar extends Component {
       data.push(sortedDescCategoryLengths[i][1]);
     }
 
-
+console.log(categories);
 
     c3.generate({
       bindto: '#chart',
@@ -82,7 +82,9 @@ class GraphBar extends Component {
       },
       tooltip: {
         contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-          return "<p>" + d[0].value + "</p>";
+
+          return (
+                "<div class=\"bar-tooltip\"><p>" + categories[d[0]['index']+1] +": " + d[0].value + "</p></div>");
         }
         // show: false
       }
