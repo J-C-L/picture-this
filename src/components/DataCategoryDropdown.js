@@ -22,7 +22,7 @@ class DataCategoryDropdown extends React.Component {
 
     return (
       <div className="category-selector">
-          <h2 className="heading"> Which category would you like to graph?</h2>
+          <h2 className="heading"> Category to graph:</h2>
           <Select
             name="Category"
             value={this.props.category}
