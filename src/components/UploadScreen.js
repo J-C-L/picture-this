@@ -26,7 +26,7 @@ class UploadScreen extends Component {
         parsedData: dataAsJSON,
       })
       this.props.onFileUpload(this.state.parsedData.data, this.state.fileName);
-      
+
     }
 
     reader.readAsText(acceptedFiles[0])
@@ -35,29 +35,31 @@ class UploadScreen extends Component {
 
   render() {
 
+
+
+
     var dropArea;
     if (this.state.fileName){
       dropArea = (
         <section className="dropArea">
           <Dropzone onDrop={(files) => this.onDrop(files)}>
-            <div>Drag your data file here, or click to select file to upload.</div>
+            <div>
+            <strong>Successfully uploaded:</strong> {this.state.fileName}
+            </div>
           </Dropzone>
-          <div>
-            Successfully uploaded file: {this.state.fileName}
-          </div>
         </section>
       );
     }else{
       dropArea = (
-          <Dropzone onDrop={(files) => this.onDrop(files)}>
-            <div>Drag your data file here, or click to select file to upload.</div>
-          </Dropzone>
+        <Dropzone onDrop={(files) => this.onDrop(files)}>
+          <div>Drag your data file here, or click to select file to upload.</div>
+        </Dropzone>
       );
     }
 
     return (
       <div className="Upload">
-      {dropArea}
+        {dropArea}
       </div>
     );
   }

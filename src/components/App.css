@@ -44,13 +44,17 @@ h5.main-title {
 
 
 .Upload{
-  margin-left: 5px;
-  width: 30%;
+  margin-left: 1%;
+  margin-right: 0;
+  width: 25%;
+  display:inline-block;
 }
 
-/*Dropzone{
-margin-bottom: 100px;
-}*/
+
+.Upload div{
+padding: 3%;
+overflow: scroll;
+}
 
 .Select-clear-zone{
   visibility: hidden;
