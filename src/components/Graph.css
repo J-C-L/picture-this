@@ -1,6 +1,7 @@
 
 .chart-title {
-  color: blue;
+  /*color: blue;*/
+  margin-top: 5px;
   text-align: center;
 }
 

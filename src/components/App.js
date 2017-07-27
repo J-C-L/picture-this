@@ -59,15 +59,15 @@ class App extends React.Component {
     return (
       <div>
         <header>
-          <img src={require("../assets/pieChartYum.jpg")} alt={"picture of pie called pie chart"} className="pie" />
+          <img src={require("../assets/pieChartYum3.png")} alt={"picture of pie called pie chart"} className="pie" />
 
           <div className='main-title-section'>
             <h1 className='main-title'> PICTURE IT! </h1>
-            <h3 className='main-title'> An easy, fun way to make your data come to life... </h3>
+            <h3 className='main-title'> A fun, easy way to make your data come to life... </h3>
             <h5 className='main-title'> A capstone project by Janice Lichtman </h5>
 
           </div>
-          <img src={require("../assets/barChartDrinks.png")} alt={"bar chart of liquor bottles"} className="liquor" />
+          <img src={require("../assets/barChartDrinks3.png")} alt={"bar chart of liquor bottles"} className="liquor" />
 
         </header>
 
