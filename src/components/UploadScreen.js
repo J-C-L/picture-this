@@ -35,34 +35,42 @@ class UploadScreen extends Component {
 
   render() {
 
-
+    const dropzoneStyle= {
+      width  : "100%",
+      height : "130px",
+      border : "2px dashed black",
+      borderRadius : "5px"
+    };
 
 
     var dropArea;
     if (this.state.fileName){
       dropArea = (
         <section className="dropArea">
-          <Dropzone onDrop={(files) => this.onDrop(files)}>
+          <Dropzone
+            onDrop={(files) => this.onDrop(files)}
+            style={dropzoneStyle}>
             <div>
-            <strong>Successfully uploaded:</strong> {this.state.fileName}
-            </div>
+              <strong>Successfully uploaded:</strong> {this.state.fileName}
+              </div>
+            </Dropzone>
+          </section>
+        );
+      }else{
+        dropArea = (
+          <Dropzone onDrop={(files) => this.onDrop(files)}
+            style={dropzoneStyle}>
+            <div>Drag your data file here, or click to select file to upload.</div>
           </Dropzone>
-        </section>
-      );
-    }else{
-      dropArea = (
-        <Dropzone onDrop={(files) => this.onDrop(files)}>
-          <div>Drag your data file here, or click to select file to upload.</div>
-        </Dropzone>
+        );
+      }
+
+      return (
+        <div className="Upload">
+          {dropArea}
+        </div>
       );
     }
-
-    return (
-      <div className="Upload">
-        {dropArea}
-      </div>
-    );
   }
-}
 
-export default UploadScreen;
+  export default UploadScreen;

@@ -1,7 +1,6 @@
 
 .chart-title {
-  /*color: blue;*/
-  margin-top: 5px;
+  margin-top: 15px;
   text-align: center;
 }
 
@@ -27,7 +26,6 @@
   margin-left: 5px;
   margin-right: 20px;
 }
-
 
 
 .xyAxisSelector{

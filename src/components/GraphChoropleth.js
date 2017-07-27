@@ -202,6 +202,10 @@ console.log(colorDomainArray);
           <DataCategoryDropdown
             category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
 
+            <h2 className="chart-title">
+              File Being Graphed: {this.props.name} </h2>
+            <h4 className="chart-title"> Chart Type: {this.props.chartType}
+               </h4>
           {parentContainer.toReact()}
         </div>
       );
