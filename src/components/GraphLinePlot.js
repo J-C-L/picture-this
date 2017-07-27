@@ -4,7 +4,7 @@ import {groupBy, reduce} from 'lodash';
 // import _ from 'lodash';
 import testDataXY from '../assets/Test-Data-xy.csv';
 import c3 from 'c3';
-// import './c3.css';
+import './c3.css';
 import './Graph.css';
 import XAxisSelector from './XAxisSelector';
 import YAxisSelector from './YAxisSelector';
@@ -89,11 +89,11 @@ class GraphLinePlot extends Component {
           legend:{
             hide: true
           },
-          // zoom: {
-          //   enabled: true,
-          //   // rescale: true
-          //   extent: [1, 100] //default is [1, 10]
-          // },
+          zoom: {
+            enabled: true,
+            // rescale: true
+            extent: [1, 100] //default is [1, 10]
+          },
           tooltip: {
             contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
               console.log(d);
