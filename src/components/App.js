@@ -25,6 +25,14 @@ class App extends React.Component {
     this.setState({chartType: null});
   }
 
+  renderChartTypeDropdown(){
+    if (this.state.dataToGraph){
+      return(
+      <ChartTypeDropdown chartType={this.state.chartType}
+        onChartSelect={chartType => this.setState({chartType})}/>
+    )
+    }
+  }
 
   renderChart(dataToGraph, chartType, name){
     if (dataToGraph && (chartType==='Pie'|| chartType==='Donut')){
@@ -59,13 +67,13 @@ class App extends React.Component {
             <h5 className='main-title'> A capstone project by Janice Lichtman </h5>
 
           </div>
-          <img src={require("../assets/barChartDeaths.jpg")} alt={"comic image called death by bar charts"} className="killer-bar-chart" />
+          <img src={require("../assets/barChartDrinks.png")} alt={"bar chart of liquor bottles"} className="liquor" />
+
         </header>
 
         <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 
-        <ChartTypeDropdown chartType={this.state.chartType}
-          onChartSelect={chartType => this.setState({chartType})}/>
+        {this.renderChartTypeDropdown()}
 
         {this.renderChart(this.state.dataToGraph, this.state.chartType, this.state.fileName)}
 

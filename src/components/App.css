@@ -1,25 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+
+body {
+  /*font-family: "Indie Flower";*/
+  font-family: "Zilla Slab";
+}
+
 
 header{
   padding-bottom: 15px;
   border-bottom: 2px solid;
   background-color: white;
-  height: 125px;
+  height: 132px;
 }
 
 .pie{
   float:left;
-  margin-right: 5%;
+  margin-right: 7%;
   margin-left: 1%;
   max-width: 20%;
-  height: 124px;
+  padding-top: 3px;
+  height: 123px;
   display:inline-block;
 }
 
-.killer-bar-chart{
+.liquor{
   float:right;
   /*margin-left: 7%;*/
-  margin-right: 1%;
-  max-width: 20%;
+  margin-right: 2%;
+  max-width: 18%;
+  padding-top: 6px;
   height: 123px;
   display:inline-block;
 }
@@ -38,15 +48,19 @@ h1.main-title {
 }
 
 h5.main-title {
-  padding-top: 5px;
+  padding-top: 8px;
+  padding-bottom: 7px;
+  margin-bottom: 0;
 }
 
 
 
 .Upload{
+  float: left;
+  margin-top: 2%;
   margin-left: 1%;
   margin-right: 0;
-  width: 25%;
+  width: 20%;
   display:inline-block;
 }
 
@@ -56,21 +70,34 @@ padding: 3%;
 overflow: scroll;
 }
 
+
 .Select-clear-zone{
   visibility: hidden;
 }
 
-.chart-type-selector .heading {
+
+.chart-type-container, .category-selector-container{
+  margin-top: 2%;
+  margin-right: 2%;
+  width:25%;
+  display:inline-block;
+  vertical-align: top;
+}
+
+.chart-type-selector .heading, .category-selector .heading {
   margin-bottom: 3px;
 }
 
-.chart-type-selector{
+.chart-type-selector, .category-selector{
   margin-left: 5px;
 }
 
 .chart-type-selector .Select{
-  max-width: 15%;
+  /*max-width: 15%;*/
 }
+/*.category-selector{
+  max-width: 30%;
+}*/
 
 
 

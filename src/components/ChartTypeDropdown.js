@@ -19,9 +19,9 @@ class ChartTypeDropdown extends React.Component {
     ];
 
       return (
-      <div>
+      <div className="chart-type-container">
         <section className="chart-type-selector">
-          <h3 className="heading"> Select chart Type:</h3>
+          <h2 className="heading"> Select chart Type:</h2>
           <Select
             name="Chart-Type"
             placeholder="chart type..."
