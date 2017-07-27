@@ -123,7 +123,7 @@ class GraphLinePlot extends Component {
         )
       }else if(!this.state.yAxis) {
         return(
-          <div>
+          <div className="x-and-y-dropdowns">
             <XAxisSelector
               xAxis={this.state.xAxis} dataToGraph={this.props.dataToGraph} onXAxisSelect={xAxis => this.setState({xAxis})} />
 

@@ -28,27 +28,28 @@
 
 .category-selector .heading {
   font-size: 1.2rem;
-  /*display: inline-block;*/
-  /*padding-right: 2%;*/
 }
 
 .category-selector .Select{
-  /*display: inline-block;*/
   margin: auto;
   width: 25%;
 }
 
 
-.xyAxisSelector .heading {
-  margin-bottom: 3px;
+.xAxisSelector .heading, .yAxisSelector .heading {
+  font-size: 1.2rem;
 }
 
-.xyAxisSelector{
-  margin-left: 5px;
-  margin-right: 20px;
+
+.xAxisSelector{
+  margin-top: 5px;
+  margin-left: 15%;
+  margin-right: 5%;
+  max-width: 30%;
+  display: inline-block;
 }
 
-.xyAxisSelector{
+.yAxisSelector{
   max-width: 30%;
   display: inline-block;
 }

@@ -22,8 +22,7 @@ class XAxisSelector extends React.Component {
 
 
     return (
-      <div className="xyAxisSelector">
-        <section className="x-axis-selector">
+      <div className="xAxisSelector">  
           <h4 className="heading"> Which field would you like to use for your x-axis?</h4>
           <Select
             name="X-Axis"
@@ -32,7 +31,6 @@ class XAxisSelector extends React.Component {
             options={chartOptions}
             onChange={val => this.props.onXAxisSelect(val.value)}
             />
-        </section>
       </div>
     )
   }
