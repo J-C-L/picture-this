@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import ReactFauxDOM from 'react-faux-dom';
 import * as d3 from 'd3';
-// import topojson from 'topojson';
 import './Graph.css';
 import DataCategoryDropdown from './DataCategoryDropdown';
 import USstatesJSON from '../assets/us-states.json';
-// import populationCSV from '../assets/USPopByState.csv';
 
 
 class GraphChoropleth extends Component {
