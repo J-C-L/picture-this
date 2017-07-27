@@ -14,7 +14,7 @@ header{
 
 .pie{
   float:left;
-  margin-right: 7%;
+  margin-right: 4%;
   margin-left: 1%;
   max-width: 20%;
   padding-top: 3px;
@@ -51,13 +51,16 @@ h5.main-title {
   margin-bottom: 0;
 }
 
-
+.upload-and-chartType{
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
 
 .Upload{
-  float: left;
   margin-top: 2%;
   margin-left: 1%;
-  margin-right: 0;
+  margin-right: 2%;
   width: 20%;
   display:inline-block;
 }
@@ -76,11 +79,9 @@ overflow: scroll;
 }
 
 
-
 .Select-clear-zone{
   visibility: hidden;
 }
-
 
 .chart-type-container, .category-selector-container{
   margin-top: 2%;
@@ -92,20 +93,18 @@ overflow: scroll;
 
 .chart-type-selector .heading, .category-selector .heading {
   margin-bottom: 3px;
+  font-size: 1.6rem;
 }
 
 .chart-type-selector, .category-selector{
   margin-left: 5px;
 }
 
-.chart-type-selector .Select{
-  /*max-width: 15%;*/
+
+
+.chart-title-section{
+  margin-top: 30px;
 }
-/*.category-selector{
-  max-width: 30%;
-}*/
-
-
 
 body {
   display: block;
@@ -126,6 +125,13 @@ body::after {
   position: absolute;
   z-index: -1;
 }
+
+
+
+
+
+
+
 
 
 /* Default styling from create-react-app

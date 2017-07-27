@@ -1,6 +1,5 @@
 
 .chart-title {
-  margin-top: 15px;
   text-align: center;
 }
 
@@ -18,15 +17,14 @@
   margin-bottom: 2%;
 }
 
-.xyAxisSelector .heading, .category-selector .heading {
+.xyAxisSelector .heading {
   margin-bottom: 3px;
 }
 
-.xyAxisSelector, .category-selector{
+.xyAxisSelector{
   margin-left: 5px;
   margin-right: 20px;
 }
-
 
 .xyAxisSelector{
   max-width: 30%;

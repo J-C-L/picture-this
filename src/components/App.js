@@ -28,9 +28,9 @@ class App extends React.Component {
   renderChartTypeDropdown(){
     if (this.state.dataToGraph){
       return(
-      <ChartTypeDropdown chartType={this.state.chartType}
-        onChartSelect={chartType => this.setState({chartType})}/>
-    )
+        <ChartTypeDropdown chartType={this.state.chartType}
+          onChartSelect={chartType => this.setState({chartType})}/>
+      )
     }
   }
 
@@ -71,9 +71,11 @@ class App extends React.Component {
 
         </header>
 
-        <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
+        <div className="upload-and-chartType">
+          <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 
-        {this.renderChartTypeDropdown()}
+          {this.renderChartTypeDropdown()}
+        </div>
 
         {this.renderChart(this.state.dataToGraph, this.state.chartType, this.state.fileName)}
 
