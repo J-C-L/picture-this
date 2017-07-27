@@ -8,7 +8,6 @@ import UploadScreen from './UploadScreen';
 import ChartTypeDropdown from './ChartTypeDropdown';
 
 
-
 class App extends React.Component {
 
   constructor(){
@@ -51,8 +50,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <header>
+        <img src={require("../assets/pieChartYum.jpg")} alt={"picture of pie called pie chart"} className="pie" />
+
+        <div className='main-title-section'>
         <h1 className='main-title'> PICTURE IT! </h1>
         <h3 className='main-title'> An easy, fun way to make your data come to life... </h3>
+        </div>
+          <img src={require("../assets/barChartDeaths.jpg")} alt={"comic image called death by bar charts"} className="killer-bar-chart" />
+        </header>
 
         <UploadScreen onFileUpload= { (dataToGraph, fileName)=> this.onFileUpload(dataToGraph, fileName) } />
 

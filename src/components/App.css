@@ -1,11 +1,52 @@
 
+header{
+  padding-bottom: 15px;
+  border-bottom: 2px solid;
+  background-color: white;
+  height: 125px;
+}
+
+.pie{
+  float:left;
+  margin-right: 5%;
+  margin-left: 1%;
+  max-width: 20%;
+  height: 124px;
+  display:inline-block;
+}
+
+.killer-bar-chart{
+  float:right;
+  /*margin-left: 7%;*/
+  margin-right: 1%;
+  max-width: 20%;
+  height: 123px;
+  display:inline-block;
+}
+
+.main-title-section{
+  display:inline-block;
+}
+
+h1.main-title {
+  margin-top: 0;
+  padding-top: 5px;
+}
+
+.main-title {
+  text-align: center;
+}
+
+
+
+
 .Upload{
-    margin-left: 5px;
-    width: 30%;
+  margin-left: 5px;
+  width: 30%;
 }
 
 /*Dropzone{
-  margin-bottom: 100px;
+margin-bottom: 100px;
 }*/
 
 .Select-clear-zone{
@@ -24,19 +65,7 @@
   max-width: 15%;
 }
 
-h1.main-title {
-  margin-top: 0;
-  padding-top: 5px;
-}
 
-.main-title {
-  text-align: center;
-}
-
-h3.main-title {
-  padding-bottom: 15px;
-  border-bottom: 2px solid;
-}
 
 body {
   display: block;
