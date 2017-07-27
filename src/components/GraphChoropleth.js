@@ -31,14 +31,13 @@ class GraphChoropleth extends Component {
 
     var data = this.props.dataToGraph;
 
-console.log(data);
      var categoryValue = this.state.category
-     console.log(categoryValue);
+
     //get array of the relevant data field
     var dataValues = data.map(function(val){
       return parseInt(val[categoryValue]);
     });
-console.log(dataValues);
+
     var dataMax = Math.max.apply(null, dataValues);
     var dataMin = Math.min.apply(null, dataValues);
     var dataRange = dataMax - dataMin;
@@ -49,7 +48,7 @@ console.log(dataValues);
       var value = dataMin + (dataRange/6)* i;
       colorDomainArray.push(value);
     }
-console.log(colorDomainArray);
+
     // Define linear scale for color range
     var color = d3.scaleLinear()
     .range(['#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#99000d'])
@@ -98,23 +97,11 @@ console.log(colorDomainArray);
 
 
 
-    // Create a parentContainer, then an SVG element that state paths will be attached to,
-    // and append tooltip as a sibling of that SVG (else it doesn't work, not sure why)
-    // these are fake DOM nodes that ReactFauxDOM creates
+    // Create a parentContainer, then an SVG element that state paths will be attached to
     const parentContainer = new ReactFauxDOM.createElement('div')
     const node = new ReactFauxDOM.createElement('svg')
     parentContainer.appendChild(node);
-    // parentContainer.appendChild(
-    //       <Tooltip
-    //         pageX={this.state.tooltipLeft}
-    //         pageY={this.state.tooltipTop}
-    //         opacity={this.state.tooltipOpacity}
-    //         data={this.state.tooltipData}
-    //         onClick={this.onTooltipClick}
-    //         key="chart-tooltip"
-    //         />
-    //
-    //     );
+
 
     // create the map const with the correct attributes
     const d3_map = d3.select(node)
@@ -146,7 +133,6 @@ console.log(colorDomainArray);
         return "rgb(0,0,100)";
       }
     }) // end fill function
-
 
 
     // create the legend const and an svg element which it will be attached to
@@ -202,10 +188,13 @@ console.log(colorDomainArray);
           <DataCategoryDropdown
             category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
 
+            <div className="chart-title-section">
             <h2 className="chart-title">
               File Being Graphed: {this.props.name} </h2>
-            <h4 className="chart-title"> Chart Type: {this.props.chartType}
-               </h4>
+            <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
+            <h4 className="chart-title"> Category shown: {this.state.category} </h4>
+            </div>
+            
           {parentContainer.toReact()}
         </div>
       );

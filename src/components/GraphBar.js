@@ -96,34 +96,6 @@ console.log(categories);
       // }
     });
 
-
-
-    // c3.generate({
-    //     bindto: '#chart',
-    //     data: {
-    //       x: 'x',
-    //       columns:
-    //       [['x', this.state.category]].concat(sortedDescCategoryLengths),
-    //       // columns: categoryLengths,
-    //       type: this.props.chartType.toLowerCase(),
-    //       labels: true,
-    //     },
-    //     axis: {
-    //       x: {
-    //         type: 'category' // this needed to load string x value
-    //       },
-    //       y:{
-    //         label: {
-    //           text: 'Totals',
-    //           position: 'outer-middle'
-    //         }
-    //       }
-    //     },
-    //     // tooltip: {
-    //     //   show: false
-    //     //   }
-    //     });
-
     }
 
     render() {

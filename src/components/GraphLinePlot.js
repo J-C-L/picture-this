@@ -105,11 +105,6 @@ class GraphLinePlot extends Component {
                 text + "</div>");
               }
             }
-            //Wnpm install --save react-c3jsant to normaliza scale based on xy-values
-            // size: {
-            //   width: 400,
-            //   height: 400
-            // }
           });
         } catch (error) {
           this.setState({error: "We're sorry. This type of graph cannot be rendered with that data."})
@@ -146,9 +141,14 @@ class GraphLinePlot extends Component {
             <YAxisSelector
               dataToGraph={this.props.dataToGraph} onYAxisSelect={yAxis => this.setState({yAxis})} />
 
-            <h2 className="chart-title">
-              File Being Graphed: {this.props.name} </h2>
-            <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
+              <div className="chart-title-section">
+              <h2 className="chart-title">
+                File Being Graphed: {this.props.name} </h2>
+              <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
+              <h4 className="chart-title"> Category shown: {this.state.category} </h4>
+              </div>
+
+
             {this.state.error && (
               <h2 className="error-message">{this.state.error}</h2>
             )}

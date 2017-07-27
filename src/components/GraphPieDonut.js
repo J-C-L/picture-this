@@ -56,10 +56,13 @@ class GraphPieDonut extends Component {
           <DataCategoryDropdown
             category={this.state.category} dataToGraph={this.props.dataToGraph} onCategorySelect={category => this.setState({category})} />
 
-          <h2 className="chart-title">
-            File Being Graphed: {this.props.name} </h2>
-          <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
-          <h4 className="chart-title"> Category shown: {this.state.category} </h4>
+            <div className="chart-title-section">
+            <h2 className="chart-title">
+              File Being Graphed: {this.props.name} </h2>
+            <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
+            <h4 className="chart-title"> Category shown: {this.state.category} </h4>
+            </div>
+            
           <div id="chart"></div>
         </div>
       )
