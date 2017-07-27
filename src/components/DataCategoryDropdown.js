@@ -21,9 +21,8 @@ class DataCategoryDropdown extends React.Component {
 
 
     return (
-      <div className="category-selector-container">
-        <section className="category-selector">
-          <h2 className="heading"> Which category would you like to see graphed?</h2>
+      <div className="category-selector">
+          <h2 className="heading"> Which category would you like to graph?</h2>
           <Select
             name="Category"
             value={this.props.category}
@@ -31,7 +30,6 @@ class DataCategoryDropdown extends React.Component {
             options={chartOptions}
             onChange={val => this.props.onCategorySelect(val.value)}
             />
-        </section>
       </div>
     )
 

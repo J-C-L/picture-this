@@ -9,7 +9,7 @@ header{
   padding-bottom: 15px;
   border-bottom: 2px solid;
   background-color: white;
-  height: 132px;
+  height: 135px;
 }
 
 .pie{
@@ -17,7 +17,7 @@ header{
   margin-right: 4%;
   margin-left: 1%;
   max-width: 20%;
-  padding-top: 3px;
+  padding-top: 8px;
   height: 123px;
   display:inline-block;
 }
@@ -27,7 +27,7 @@ header{
   /*margin-left: 7%;*/
   margin-right: 2%;
   max-width: 18%;
-  padding-top: 6px;
+  padding-top: 8px;
   height: 123px;
   display:inline-block;
 }
@@ -83,7 +83,7 @@ overflow: scroll;
   visibility: hidden;
 }
 
-.chart-type-container, .category-selector-container{
+.chart-type-container{
   margin-top: 2%;
   margin-right: 2%;
   width:25%;
@@ -91,20 +91,15 @@ overflow: scroll;
   vertical-align: top;
 }
 
-.chart-type-selector .heading, .category-selector .heading {
+.chart-type-selector .heading{
   margin-bottom: 3px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
-.chart-type-selector, .category-selector{
+.chart-type-selector{
   margin-left: 5px;
 }
 
-
-
-.chart-title-section{
-  margin-top: 30px;
-}
 
 body {
   display: block;

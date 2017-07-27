@@ -8,7 +8,6 @@ import './Graph.css';
 import DataCategoryDropdown from './DataCategoryDropdown';
 
 
-
 class GraphBar extends Component {
   constructor(){
     super();
@@ -16,7 +15,6 @@ class GraphBar extends Component {
       category: null
     };
   }
-
 
   componentDidMount() {
     this.updateChart();
@@ -118,8 +116,6 @@ console.log(categories);
             <h4 className="chart-title"> Chart Type: {this.props.chartType} </h4>
             <h4 className="chart-title"> Category shown: {this.state.category} </h4>
             </div>
-
-
 
             <div id="chart"></div>
           </div>
