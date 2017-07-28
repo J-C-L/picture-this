@@ -1,6 +1,6 @@
 
 
-_PICTURE THIS!_ is an online tool enabling a user to upload a data set and easily create different kinds of graphs for it.
+__PICTURE THIS!__ is an online tool enabling a user to upload a data set and easily create different kinds of graphs for it.
 
 Tool details:
 Data must be uploaded as a csv file.
