@@ -12,8 +12,8 @@ http://jcl-picture-it.s3-website-us-west-2.amazonaws.com/
 Original product plan: https://gist.github.com/J-C-L/f1fb52c222a61571b8d1d3667700b5a9
 
 This project was completed as the capstone project for my course work in Ada Developers Academy. July 28, 2017.
--------------------------------------
 
+--------------------------------------------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
